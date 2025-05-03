@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Laranja_escuro: #ff5512;
+    --Laranja_claro: #ff9300; 
+    --Azul_escuro: #4f61ff ;
+    --Azul_claro: #91d9ff;
+    --Marrom_escuro: #805240;
+    --Marrom_Claro: #aa7a39;
+}

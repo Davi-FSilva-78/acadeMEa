@@ -1,0 +1,68 @@
+:root {
+    --Laranja_escuro: #ff5512;
+    --Laranja_claro: #ff9300; 
+    --Azul_escuro: #4f61ff ;
+    --Azul_claro: #91d9ff;
+    --Marrom_escuro: #805240;
+    --Marrom_Claro: #aa7a39;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-shadow: 2px 2px 5px #eef;
+}
+
+.logo {
+    width: 15%;
+    height: 35px;
+    border-bottom: 3px solid black;
+    margin-bottom: 1%;
+}
+
+/* Tratamento para visitantes */
+
+.visit_header_container {
+    width: 15%;
+    margin-right: 10px;
+}
+
+.list_visit_option {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list_visit_option li {
+    list-style: none;
+}
+
+.list_visit_option li a {
+    text-decoration: none;
+}
+
+
+.cadastro a {
+    color: var(--Laranja_escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    background-color: var(--Laranja_escuro);
+    border: 1px solid var(--Laranja_escuro);
+    padding: 1px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.login a {
+    color: #fff;
+}
+
