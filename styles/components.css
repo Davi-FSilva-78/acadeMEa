@@ -1,12 +1,3 @@
-:root {
-    --Laranja_escuro: #ff5512;
-    --Laranja_claro: #ff9300; 
-    --Azul_escuro: #4f61ff ;
-    --Azul_claro: #91d9ff;
-    --Marrom_escuro: #805240;
-    --Marrom_Claro: #aa7a39;
-}
-
 header {
     display: flex;
     justify-content: flex-end;
@@ -66,3 +57,13 @@ header {
     color: #fff;
 }
 
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    height: 100px;
+    border: none;
+    background-color: #ddd;
+}
