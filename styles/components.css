@@ -5,6 +5,7 @@ header {
     align-items: center;
     width: 100%;
     box-shadow: 2px 2px 5px #eef;
+    height: 80px;
 }
 
 .logo {

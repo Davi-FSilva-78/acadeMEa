@@ -10,16 +10,58 @@ bullet- estilos para o elemento de marcador de paginação
 bullet-active- estilos para o elemento de marcador de paginação ativo
 scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
 
-
 .swiper .swiper-slide{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
  
 }
-
-.swiper img{
+.swiper .slide {
     width: 90%;
-    height: 80%;
+    height: 85%;
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    border-radius: 40px;
+
+}
+
+.swiper h3 {
+    color: #fff;
+}
+
+ .swiper .swiper-jogos {
+    background-image: url(../assets/img/Gemini_Generated_Image_27uuun27uuun27uu.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}
+
+.swiper .swiper_dicas {
+    background-image: url(../assets/img/altere_duplo_sombreado.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.swiper .swiper-segredos {
+    background-image: url(../assets/img/explore.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.swiper .slide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 4%;
+    height: 60%;
+    width: 50%;
+    background-color: #222;
+    opacity: 87%;
+    margin-left: 80px;
     border-radius: 20px;
 }
+

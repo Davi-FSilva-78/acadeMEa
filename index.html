@@ -25,34 +25,52 @@
         <main-header></main-header>
 
         <!-- Seção de destaque com carrosel -->
-       
-            <!-- Slider main container -->
-            <section class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img src="assets/img/jogos_se_desafie.png" alt="">
+
+        <!-- Slider main container -->
+        <section class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="slide swiper-jogos">
+                        <div class="slide-container jogos-container">
+                            <h1>APRENDA JOGANDO</h1>
+                            <h3> Descubra mais sobre musculação e se desafie com nossos jogos</h3>
+                            <button onclick="page='alert(`preencher variavel`)'; redirecionar()" class="button_redirecionar">JOGAR</button>
+                        </div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="assets/img/Homem-pensando-na-academia-de-ginastica-dicas.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/img/explore.jpg" alt="">
-                    </div>
-                    ...
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+                <div class="swiper-slide">
+                    <div class="slide swiper_dicas">
+                        <div class="slide-container dicas-container">
+                            <h1>CONFIRA DICAS IMPORTANTES</h1>
+                            <h3>Acesse a página de dícas e tenha tudo que precisa para levar sua rotína de musculação a outro nível !</h3>
+                            <button onclick="page='dicas'; redirecionar()" class="button_redirecionar">JOGAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide swiper-segredos">
+                        <div class="slide-container segredos-container">
+                            <h1>DESCUBRA SEGREDOS</h1>
+                            <h3>Explore o site e descubra coisas escondidas.</h3>
+                            <button onclick="page='alert(`preencher variavel`)'; redirecionar()" class="button_redirecionar">JOGAR</button>
+                        </div>
+                    </div>
+                </div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
 
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
-            </section>
-    
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </section>
+
 
         <!-- Um pouco do que tem na pagina de curiosidade -->
         <section class="curiosidade">
@@ -193,7 +211,7 @@
     }
 </script>
 <script>
-     const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.swiper', {
         loop: true, // Faz o carrossel rodar infinitamente
         pagination: {
             el: '.swiper-pagination',
