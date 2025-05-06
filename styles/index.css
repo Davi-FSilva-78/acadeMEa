@@ -1,9 +1,9 @@
 /* curiosidades */
 .curiosidade {
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-    background-image: url("/assets/img/altere_duplo_sombreado.png");
+    background-image: url("../assets/img/altere_duplo_sombreado.png");
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    background-image: url("/assets/img/altere_unico.png");
+    background-image: url("../assets/img/altere_unico.png");
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -155,21 +155,3 @@
 .previa p {
     width: 90%;
 }
-/* 
-        <!--  Um pouco do que tem na pagina de prévias/atualizações -->
-        <section class="previa">
-            <h1>Previas</h1>
-            <p>A musculação tem uma história fascinante! Desde os primeiros registros da Grécia Antiga, onde atletas e
-                guerreiros treinavam para força e resistência, até o surgimento dos primeiros equipamentos de academia
-                no século XX, esse universo evoluiu muito.</p>
-            <p>Eugene Sandow, considerado o pai da musculação moderna, revolucionou a maneira como o treinamento de
-                força era visto, trazendo conceitos que moldaram os treinos atuais. O crescimento do fisiculturismo,
-                impulsionado por nomes lendários como Arnold Schwarzenegger, levou a musculação para um novo patamar,
-                transformando-a em um estilo de vida e uma competição de alto nível.</p>
-            <p> Quer conhecer mais sobre os marcos históricos, os grandes nomes e as curiosidades desse mundo? Explore
-                nossa página e descubra como a musculação se tornou uma das práticas mais populares e transformadoras do
-                mundo fitness!</p>
-
-
-            <button onclick="page='previas'; redirecionar()">Saber mais</button>
-        </section> */

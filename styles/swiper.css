@@ -1,0 +1,25 @@
+/* Peças
+As seguintes partes CSS estão disponíveis para estilização:
+
+container- estilos para<div class="swiper">
+wrapper- estilos para<div class="swiper-wrapper">
+button-prev- estilos para o botão de navegação anterior<div class="swiper-button-prev">
+button-next- estilos para o próximo botão de navegação<div class="swiper-button-next">
+pagination- estilos para o contêiner de paginação anterior<div class="swiper-pagination">
+bullet- estilos para o elemento de marcador de paginação
+bullet-active- estilos para o elemento de marcador de paginação ativo
+scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
+
+
+.swiper .swiper-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.swiper img{
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+}

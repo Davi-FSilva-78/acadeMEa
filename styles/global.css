@@ -21,7 +21,9 @@ section{
     width: 100%;
     height: 550px;
 }
-
+h1 {
+    color: var(--Azul_escuro);
+}
 .button_redirecionar {
     width: 180px;
     text-align: center;
