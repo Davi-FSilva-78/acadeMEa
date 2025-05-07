@@ -34,20 +34,20 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
 }
 
  .swiper .swiper-jogos {
-    background-image: url(../assets/img/Gemini_Generated_Image_27uuun27uuun27uu.jpeg);
+    background-image: url(../assets/img/game/Gemini_Generated_Image_27uuun27uuun27uu.jpeg);
     background-repeat: no-repeat;
     background-size: 100%;
     
 }
 
 .swiper .swiper_dicas {
-    background-image: url(../assets/img/altere_duplo_sombreado.png);
+    background-image: url(../assets/img/global/altere_duplo_sombreado.png);
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .swiper .swiper-segredos {
-    background-image: url(../assets/img/explore.jpg);
+    background-image: url(../assets/img/index/explore.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
 }

@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
+    background-image: url("../assets/img/altere_duplo_sombreado.png");
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    background-image: url("../assets/img/global/mulher_box3.png");
+    background-image: url("../global/assets/img/mulher_box3.png");
     background-repeat: no-repeat;
     background-position: left;
     background-size: 50%;
@@ -129,7 +129,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    background-image: url("../assets/img/global/altere_unico.png");
+    background-image: url("../global/assets/img/altere_unico.png");
     width: 100%;
     display: flex;
     flex-direction: column;
