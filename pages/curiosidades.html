@@ -4,21 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curiosidades da musculação</title>
-
+    <title>acadMEa - Curiosidades</title>
     <!-- estilos css -->
     <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/curiosidades.css">
     <link rel="stylesheet" href="../styles/swiper.css">
-    <!-- Estilo unico -->
-    <link rel="stylesheet" href="../styles/curiosidade.css">
-
     <!-- biblioteca de carrosel - estilos e funções -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- componentes importados -->
-    <script src="components/header/visit_header.js"></script>
-    <script src="components/footer/footer.js"></script>
+    <script src="../components/header/visit_header.js"></script>
+    <script src="../components/footer/footer.js"></script>
 </head>
 
 <body>
@@ -30,34 +27,6 @@
         <!-- Seção de destaque com carrosel -->
 
         <!-- Slider main container -->
-      
-
-
-        <!-- Um pouco do que tem na pagina de curiosidade -->
-        <section class="curiosidade">
-            <div class="curiosidade_organize">
-                <h1>Milon de cotrona</h1>
-                <p class="paragrafo">
-                    Você sabia que a musculação não surgiu apenas para estética, mas como um método de fortalecimento e
-                    resistência física, usada por guerreiros da antiguidade? <br><br>
-                    Ou que o primeiro fisiculturista moderno, Eugene Sandow, foi um verdadeiro ícone do século XIX,
-                    considerado por muitos o pai da musculação moderna, e inspirou até a
-                    criação do Mr. Olympia?<br><br>
-                    Além disso, o corpo humano tem uma capacidade surpreendente de adaptação: em poucas semanas de
-                    treino,
-                    seus músculos começam a responder ao estímulo, ficando mais fortes e resistentes! E o que dizer da
-                    alimentação? Um dos segredos de muitos atletas é a famosa hipertrofia alimentar, garantindo os
-                    nutrientes ideais para crescimento muscular.<br><br>
-                    Quer descobrir mais segredos e fatos curiosos sobre o universo da musculação? Explore nossa página e
-                    mergulhe nessa jornada fascinante!
-                </p>
-
-                <button onclick="page='curiosidades'; redirecionar()" class="button_redirecionar">VER
-                    CURIOSIDADES</button>
-            </div>
-
-        </section>
-
         <section class="swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -101,6 +70,32 @@
             <div class="swiper-scrollbar"></div>
         </section>
 
+
+        <!-- Um pouco do que tem na pagina de curiosidade -->
+        <section class="curiosidade">
+            <div class="curiosidade_organize">
+                <h1>CURIOSIDADES</h1>
+                <p class="paragrafo">
+                    Você sabia que a musculação não surgiu apenas para estética, mas como um método de fortalecimento e
+                    resistência física, usada por guerreiros da antiguidade? <br><br>
+                    Ou que o primeiro fisiculturista moderno, Eugene Sandow, foi um verdadeiro ícone do século XIX,
+                    considerado por muitos o pai da musculação moderna, e inspirou até a
+                    criação do Mr. Olympia?<br><br>
+                    Além disso, o corpo humano tem uma capacidade surpreendente de adaptação: em poucas semanas de
+                    treino,
+                    seus músculos começam a responder ao estímulo, ficando mais fortes e resistentes! E o que dizer da
+                    alimentação? Um dos segredos de muitos atletas é a famosa hipertrofia alimentar, garantindo os
+                    nutrientes ideais para crescimento muscular.<br><br>
+                    Quer descobrir mais segredos e fatos curiosos sobre o universo da musculação? Explore nossa página e
+                    mergulhe nessa jornada fascinante!
+                </p>
+
+                <button onclick="page='curiosidades'; redirecionar()" class="button_redirecionar">VER
+                    CURIOSIDADES</button>
+            </div>
+
+        </section>
+
         <!-- Pilares da musculação -->
         <section class="pilar">
 
@@ -114,7 +109,7 @@
 
             <div class="itens">
                 <div class="treino_adequado">
-                    <img src="assets/icons/icons8-musculação-50.png" alt="">
+                    <img src="../assets/icons/icons8-musculação-50.png" alt="">
                     <h3>TREINO ADEQUADO </h3>
                     <p>É a base para o desenvolvimento muscular, isso envolve, levantar pesos desafiadores para
                         estimular o crescimento dos músculos ativando a hipertrofia, e efetuar séries intensas para
@@ -122,7 +117,7 @@
                 </div>
 
                 <div class="alimentacao_adequada">
-                    <img src="assets/icons/icons8-caixa-de-legumes-64.png" alt="">
+                    <img src="../assets/icons/icons8-caixa-de-legumes-64.png" alt="">
                     <h3>ALIMENTAÇÃO SAUDÁVEL</h3>
                     <p>
                         É fundamental para musculação, sem ela, os músculos não terão os nutrientes necessários para
@@ -131,7 +126,7 @@
 
 
                 <div class="sono_adequado">
-                    <img src="assets/icons/icons8-dormindo-na-cama-50.png" alt="">
+                    <img src="../assets/icons/icons8-dormindo-na-cama-50.png" alt="">
                     <h3>BOA NOITE DE SONO</h3>
                     <p>
                         É o segredo para sucesso nos treinos, pois o músculo só cresce realmente fora da academia,
@@ -206,11 +201,11 @@
 
     function redirecionar() {
         if (page == 'dicas') {
-            window.location.href = "pages/dicas.html";
+            window.location.href = "./dicas.html";
         } else if (page == 'curiosidades') {
-            window.location.href = "pages/curiosidades.html";
+            window.location.href = "./curiosidades.html";
         } else if (page == 'previas') {
-            window.location.href = "pages/previas.html";
+            window.location.href = "./previas.html";
         }
     }
 </script>
