@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/curiosidades.css">
-    <link rel="stylesheet" href="../styles/swiper.css">
     <!-- biblioteca de carrosel - estilos e funções -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -32,71 +31,203 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="slide swiper-jogos">
-                        <div class="slide-container jogos-container">
-                            <h1>APRENDA JOGANDO</h1>
-                            <h3> Descubra mais sobre musculação e se desafie com nossos jogos</h3>
-                            <button onclick="page='alert(`preencher variavel`)'; redirecionar()" class="button_redirecionar">JOGAR</button>
+                    <div class="title">
+                        <h1>HISTÓRIA DA MUSCULAÇÃO</h1>
+                        <h3>Da Antiguidade ao Século XIX: O Nascimento da Força</h3>
+                    </div>
+
+                    <div class="slide swiper-historia">
+                        <div class="ancora crotona">
+                            <span>
+                                <h2>MILON DE CROTONA - O PRIMEIRO "BODYBUILDER" DA HISTÓRIA</h2>
+                                <h3>Atleta grego que carregava bezerros diariamente para ganhar força.</h3>
+                            </span>
+
+                        </div>
+
+                        <div class="ancora guerrasmedias">
+                            <span>
+                                <h2>A FORÇA DA ROMA ANTIGA</h2>
+                                <h3>Uso de pesos e exercícios como forma de treinamento militar.</h3>
+                            </span>
+
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
-                    <div class="slide swiper_dicas">
-                        <div class="slide-container dicas-container">
-                            <h1>CONFIRA DICAS IMPORTANTES</h1>
-                            <h3>Acesse a página de dícas e tenha tudo que precisa para levar sua rotína de musculação a outro nível !</h3>
-                            <button onclick="page='dicas'; redirecionar()" class="button_redirecionar">VER DICAS</button>
+                    <div class="title">
+                        <h1>MODERNIDADE</h1>
+                        <h3>A Revolução da Musculação Moderna</h3>
+                    </div>
+
+                    <div class="slide swiper_modernidade">
+                        <div class="ancora eugene">
+                            <span>
+                                <h2>EUGENE SANDOW - O PAI DA MUSCULAÇÃO</h2>
+                                <h3>Apresentações em circos, influência na criação do fisiculturismo.</h3>
+                            </span>
+
                         </div>
+                        <div class="organize">
+                            <div class="ancora famososCompeticoes">
+                                <span>
+                                    <h2>ERA DE OURO</h2>
+                                    <h3>Popularização com o Mr. Olympia e filmes.</h3>
+                                </span>
+
+                            </div>
+                            <div class="ancora influencer">
+                                <span>
+                                    <h2>FITNESS DIGITAL</h2>
+                                    <h3>Como a tecnologia transformou o treino e o acesso ao conhecimento</h3>
+                                </span>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
+
                 <div class="swiper-slide">
-                    <div class="slide swiper-segredos">
-                        <div class="slide-container segredos-container">
-                            <h1>EXPLORE O SITE</h1>
-                            <h3>Cadastre-se agora e mergulhe no universo da musculação! Descubra segredos espalhado pelo site, colete dicas cruciais para potencializar seus treinos e acompanhe as próximas atualizações que vão transformar sua jornada fitness. </h3>
+                    <div class="title">
+                        <h1>POR QUÊ FAZER MUSCULAÇÃO?</h1>
+                        <h3>Motivos que Vão Além da Estética</h3>
+                    </div>
+
+                    <div class="slide swiper-beneficios">
+                        <div class="organize">
+                            <div class="ancora saudeFisica">
+                                <span>
+                                    <h2>SAÚDE EM PRIMEIRO LUGAR</h2>
+                                    <h3>Prevenção de doenças cardíacas, controle de diabetes e melhora da postura</h3>
+                                </span>
+
+                            </div>
+                            <div class="ancora saudeMental">
+                                <span>
+                                    <h2>DESEMPENHO MENTAL</h2>
+                                    <h3>Redução de estresse, ansiedade e melhora do foco</h3>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="ancora longevidade">
+                            <span>
+                                <h2>LONGEVIDADE COM QUALIDADE</h2>
+                                <h3>Estudos mostram aumento da expectativa de vida com treino de força</h3>
+                            </span>
+
                         </div>
                     </div>
                 </div>
-                ...
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+        </section>
 
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
 
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+        </section>
+
+        <!-- História------------------------------------------------------------------------------------------------------------------- -->
+        <section class="historia">
+            <h1>Da Antiguidade ao Século XIX: O Nascimento da Força</h1>
+            <div class="milon">
+                <h2>Milon de Crotona – O primeiro “bodybuilder” da História</h2>
+                <div class="historia_organize">
+                    <p class="paragrafo">
+                        Milon foi um lendário atleta grego do século VI a.C., conhecido por suas conquistas nos Jogos
+                        Olímpicos e sua impressionante força. Ele é lembrado por uma prática icônica: carregar
+                        diariamente um bezerro em crescimento até que este se tornasse um touro, representando o
+                        conceito da sobrecarga progressiva, usado até hoje na musculação. Milon venceu seis Olimpíadas
+                        na luta grega e era tratado como herói nacional. Seu método empírico de treino é um dos
+                        primeiros registros históricos da ideia de adaptar o corpo ao esforço crescente. Além da força,
+                        Milon também era admirado por sua estética corporal, o que remete ao ideal grego de equilíbrio
+                        entre forma e função.
+                    </p>
+
+                    <button onclick="page='historias'; redirecionar()" class="button_redirecionar">VER
+                        historiaS</button>
+                </div>
+            </div>
+            <div class="romaAntiga">
+                <h2>Força na Roma Antiga</h2>
+                <div class="historia_organize">
+                    <p class="paragrafo">
+                        Durante o Império Romano, a força física era essencial não só para os soldados, mas também para
+                        entretenimento e poder simbólico. Gladiadores, por exemplo, seguiam rotinas rigorosas de treino
+                        e nutrição com base em grãos e vegetais ricos em energia, desafiando a visão atual sobre dietas
+                        hiperproteicas. Eles treinavam com réplicas pesadas de armas reais, em sessões diárias com foco
+                        em resistência e explosão muscular. Já os legionários, além de longas marchas, carregavam
+                        equipamentos pesando mais de 30 kg. Esse contexto consolidou a associação entre disciplina
+                        militar e preparação física — base para os futuros programas de treinamento no mundo moderno.
+
+                    </p>
+
+                    <button onclick="page='historia'; redirecionar()" class="button_redirecionar">VER
+                        historiaS</button>
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <!--  modernidade ---------------------------------------------------------------------------------------------------------------------------->
+        <section class="modernidade">
+            <h1>💪 A Revolução da Musculação Moderna</h1>
+            <div class="eugene">
+                <h2>Eugene Sandow – O Pai da Musculação</h2>
+                <div class="modernidade_container">
+                    <div class="modernidade_itens">
+                        <p>Nascido em 1867, Sandow revolucionou o fisiculturismo ao transformar o corpo em espetáculo.
+                            Ele
+                            promovia a simetria corporal como arte viva, inspirado nas estátuas da Grécia Antiga. Em
+                            suas
+                            apresentações, combinava demonstrações de força com poses estilizadas. Além disso, publicou
+                            livros, produziu vídeos educativos e desenvolveu equipamentos próprios, como halteres
+                            ajustáveis. Em 1901, organizou a primeira competição oficial de fisiculturismo, o "Great
+                            Competition", e atraiu milhares de pessoas. Sua influência é tamanha que o troféu do Mr.
+                            Olympia
+                            leva seu nome. Sandow elevou o treino físico ao status de cultura popular e científica.</p>
+                        <button onclick="page='modernidades'; redirecionar()" class="button_redirecionar">VER
+                            modernidadeS</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eraOuro">
+                <div class="modernidade_container">
+                    <h2>A Era de Ouro com Arnold</h2>
+                    <div class="modernidade_itens">
+                        <p>Nos anos 1970, Arnold Schwarzenegger consolidou a musculação como fenômeno global. Vindo da
+                            Áustria, tornou-se ícone ao vencer o Mr. Olympia sete vezes e protagonizar o documentário
+                            "Pumping Iron", que revelou os bastidores do fisiculturismo competitivo. Arnold promoveu a
+                            importância do treino mental, da visualização dos músculos durante o exercício e da
+                            constância
+                            na alimentação e no descanso. Sua transição de atleta para astro de Hollywood ajudou a
+                            quebrar
+                            preconceitos sobre quem treinava com pesos. Ele também investiu na promoção da saúde pública
+                            e
+                            do esporte em todo o mundo. Seu legado vai além dos palcos: ele transformou o estilo de vida
+                            fitness em algo desejável e acessível.</p>
+                        <button onclick="page='modernidades'; redirecionar()" class="button_redirecionar">VER
+                            modernidadeS</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
-        <!-- Um pouco do que tem na pagina de curiosidade -->
-        <section class="curiosidade">
-            <div class="curiosidade_organize">
-                <h1>CURIOSIDADES</h1>
-                <p class="paragrafo">
-                    Você sabia que a musculação não surgiu apenas para estética, mas como um método de fortalecimento e
-                    resistência física, usada por guerreiros da antiguidade? <br><br>
-                    Ou que o primeiro fisiculturista moderno, Eugene Sandow, foi um verdadeiro ícone do século XIX,
-                    considerado por muitos o pai da musculação moderna, e inspirou até a
-                    criação do Mr. Olympia?<br><br>
-                    Além disso, o corpo humano tem uma capacidade surpreendente de adaptação: em poucas semanas de
-                    treino,
-                    seus músculos começam a responder ao estímulo, ficando mais fortes e resistentes! E o que dizer da
-                    alimentação? Um dos segredos de muitos atletas é a famosa hipertrofia alimentar, garantindo os
-                    nutrientes ideais para crescimento muscular.<br><br>
-                    Quer descobrir mais segredos e fatos curiosos sobre o universo da musculação? Explore nossa página e
-                    mergulhe nessa jornada fascinante!
-                </p>
-
-                <button onclick="page='curiosidades'; redirecionar()" class="button_redirecionar">VER
-                    CURIOSIDADES</button>
-            </div>
-
-        </section>
-
-        <!-- Pilares da musculação -->
+        <!-- Pilares da musculação ----------------------------------------------------------------------------------------------------------------------------->
         <section class="pilar">
 
             <div class="title_pilar">
@@ -137,70 +268,72 @@
 
         </section>
 
-        <!--  Um pouco do que tem na pagina de dicas -->
-        <section class="dica">
-            <div class="dica_container">
-                <div class="dica_itens">
-                    <h1>DICAS</h1>
-                    <p>Além dos pilares, na nossa página dedicada às dicas, você encontrará tudo que precisa para levar
-                        sua
-                        rotina de
-                        musculação a outro nível! Além das melhores orientações sobre alimentação, suplementação e
-                        estratégias
-                        de treino, você terá acesso a:</p>
-                    <ul>
-                        <li>🎞️ - Vídeos explicativos de especialistas detalhando técnicas essenciais</li>
-                        <li>📝 - Artigos e pesquisas interessantes</li>
-                        <li><span onclick="alert('você encontrou, parabens')">🥚</span> - Recomendações nutricionais
-                            para otimizar seu desempenho muscular</li>
-                        <li>📲 - Sugestões de aplicativos e acessorios que te ajudarão a monitorar cada detalhe da sua
-                            jornada
-                            fitness</li>
-                    </ul>
+        <!--  Beneficios --------------------------------------------------------------------------------------------------------------------------- -->
+        <section class="beneficios">
+            <h1>🔥 Motivos que Vão Além da Estética</h1>
+            <div class="fisico">
+                <h2>Saúde em Primeiro Lugar</h2>
+                <div class="beneficios_organize">
+                    <p>Musculação é muito mais do que construir músculos — ela é uma ferramenta poderosa de prevenção e
+                        tratamento de doenças. Reduz os riscos de osteoporose, melhora a sensibilidade à insulina e é
+                        eficaz no controle de doenças cardiovasculares. Segundo a OMS, pessoas que treinam com pesos
+                        regularmente têm menor mortalidade por causas gerais. A prática também melhora a postura,
+                        fortalece as articulações e previne dores crônicas, especialmente nas costas e joelhos. Médicos
+                        já recomendam a musculação como complemento a tratamentos convencionais, inclusive para idosos,
+                        grávidas e pacientes em reabilitação.</p>
 
-                    <p>
-                        Seja você iniciante ou experiente, essas ferramentas vão te ajudar a maximizar seus ganhos e
-                        alcançar
-                        seus objetivos com mais eficiência. Quer descobrir como transformar seus treinos?</p>
+                    <button onclick="page='beneficioss'; redirecionar()" class="button_redirecionar">VER PRÉVIAS</button>
 
-                    <button onclick="page='dicas'; redirecionar()" class="button_redirecionar">VER DICAS</button>
                 </div>
-
             </div>
 
-        </section>
+            <div class="mental">
+                <h2>Desempenho Mental e Emocional</h2>
+                <div class="beneficios_organize">
+                    <p>Estudos apontam que o treino de força melhora significativamente o humor e a saúde mental. A
+                        liberação de endorfinas, dopamina e serotonina durante o treino atua como um “antidepressivo
+                        natural”. Além disso, a musculação ajuda a construir resiliência emocional: o hábito de superar
+                        limites físicos se traduz em mais confiança e disciplina na vida pessoal e profissional. Muitos
+                        praticantes relatam melhora na autoestima, controle da ansiedade e sensação de propósito com o
+                        progresso gradual. Para quem enfrenta rotina estressante, a academia pode ser uma poderosa
+                        válvula de escape mental.</p>
+                    <button onclick="page='beneficioss'; redirecionar()" class="button_redirecionar">VER PRÉVIAS</button>
 
+                </div>
+            </div>
 
+            <div class="longevidade">
+                <h2>Longevidade com Qualidade</h2>
+                <div class="beneficios_organize">
+                    <p>Envelhecer com saúde exige manutenção da massa muscular. Com o avanço da idade, a perda de força
+                        (sarcopenia) compromete a autonomia e aumenta o risco de quedas e doenças degenerativas. A
+                        musculação, quando bem orientada, ajuda a preservar a funcionalidade do corpo, favorecendo a
+                        independência mesmo na terceira idade. Além disso, estudos mostram que treinar após os 60 anos
+                        ainda proporciona grandes ganhos em memória, cognição e bem-estar. Idosos que treinam com
+                        regularidade vivem mais, com mais energia e autoestima, e menores índices de depressão e
+                        hospitalizações. Mais do que estética, trata-se de investir em qualidade de vida a longo prazo.
+                    </p>
 
-        <!--  Um pouco do que tem na pagina de prévias/atualizações -->
-        <section class="previa">
-            <div class="previa_organize">
-                <h1>DESCUBRA O QUE VEM POR AI</h1>
+                    <button onclick="page='beneficioss'; redirecionar()" class="button_redirecionar">VER PRÉVIAS</button>
 
-                <p>Nossa página de prévia traz um gostinho especial do que está por vir! Se você quer ficar por
-                    dentro dos novos conteúdos, explorar seções incríveis antes de todo mundo e se preparar para
-                    mergulhar ainda mais fundo no universo da musculação, este é o lugar certo.
-                </p>
-
-                <button onclick="page='previas'; redirecionar()" class="button_redirecionar">VER PRÉVIAS</button>
-
+                </div>
             </div>
 
         </section>
 
         <!-- Fazer u mfooter modular também -->
         <footer-main></footer-main>
+
     </div>
-
-
 </body>
 
 </html>
+
 <script>
     var page = '';
 
     function redirecionar() {
-        if (page == 'dicas') {
+        if (page == 'modernidades') {
             window.location.href = "./dicas.html";
         } else if (page == 'curiosidades') {
             window.location.href = "./curiosidades.html";
@@ -209,6 +342,7 @@
         }
     }
 </script>
+
 <script>
     const swiper = new Swiper('.swiper', {
         loop: true, // Faz o carrossel rodar infinitamente

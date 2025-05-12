@@ -1,36 +1,261 @@
-/* curiosidades */
-.curiosidade {
+/* Peças
+As seguintes partes CSS estão disponíveis para estilização:
+
+container- estilos para<div class="swiper">
+wrapper- estilos para<div class="swiper-wrapper">
+button-prev- estilos para o botão de navegação anterior<div class="swiper-button-prev">
+button-next- estilos para o próximo botão de navegação<div class="swiper-button-next">
+pagination- estilos para o contêiner de paginação anterior<div class="swiper-pagination">
+bullet- estilos para o elemento de marcador de paginação
+bullet-active- estilos para o elemento de marcador de paginação ativo
+scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
+
+.h3 {
+    color: #fff;
+}
+
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.slide {
+    width: 90%;
+    height: 85%;
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-self: center;
+    border-radius: 40px;
+}
+
+.ancora {
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.ancora span {
+    background-color: rgba(0, 0, 0, 0.5);
+    width:60%;
+    height: 80%;
+    margin-left: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.ancora:hover {
+    box-shadow: 4px 4px 3px 2px #ccc;
+    padding: 2px;
+    cursor: pointer;   
+}
+
+.ancora h2 {
+    font-weight: bold;
+    color: var(--Azul_claro);
+    text-align: center;
+    font-size: 24px;
+}
+
+.ancora h3 {
+    color: #fff;
+    text-align: center;
+    align-self: flex-start;
+    font-size: 18px;
+}
+
+.organize {
+    height: 90%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.swiper .crotona {
+    background-image: url(../assets/img/curiosidade/milonCrotonajpeg.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
+    width: 50%;
+}
+
+.swiper .guerrasmedias {
+    background-image: url(../assets/img/curiosidade/guerrasMedia.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+}
+
+.swiper .eugene {
+    background-image: url(../assets/img/curiosidade/eugene.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+.swiper .famososCompeticoes {
+    background-image: url(../assets/img/curiosidade/arnold.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 48%;
+    width: 100%;
+}
+
+.swiper .influencer {
+    background-image: url(../assets/img/curiosidade/arnold.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 48%;
+}
+
+.swiper .saudeFisica {
+    background-image: url(../assets/img/curiosidade/guerrasMedia.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 48%;
+}
+
+.swiper .saudeMental {
+    background-image: url(../assets/img/curiosidade/guerrasMedia.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 48%;
+}
+
+.swiper .longevidade {
+    background-image: url(../assets/img/curiosidade/eugene.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+
+
+
+/* curiosidades------------------------------------------------------------------------------------------------------------------------------------ */
+.historia {
+
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 700px;
-    
+    height: 1500px;
+
 }
-.curiosidade_organize {
+
+.historia .milon {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
+}
+
+.historia .romaAntiga {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
+}
+
+.historia_organize {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     color: #fff;
     background-color: #111;
-    height: 85%;
+    height: 50%;
     width: 50%;
     border-radius: 20px;
- 
+
 }
 
-.curiosidade p {
+.historia p {
     width: 90%;
-    
+
 }
 
-/* Pilares */
+
+/* modernidades ----------------------------------------------------------------------------------------------------------------------------------*/
+.modernidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    
+    height: 1500px;
+
+}
+
+.modernidade .eugene {
+    background-image: url("../assets/img/global/mulher_box3.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 50%;
+    background-color: var(--Marrom_escuro);
+}
+
+.modernidade .eraOuro {
+    background-image: url("../assets/img/global/mulher_box3.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 50%;
+    background-color: var(--Marrom_escuro);
+}
+
+.modernidade_container {
+    width: 45%;
+    height: 650px;
+    margin-right: 12%;
+    border-radius: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modernidade_itens {
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modernidade_itens ul {
+    list-style: none;
+}
+
+.modernidade_itens a {
+    text-decoration: none;
+}
+
+
+
+/* Pilares -------------------------------------------------------------------------------------------------------------------------*/
 .pilar {
     display: flex;
     justify-content: space-between;
@@ -39,9 +264,10 @@
     justify-content: center;
     background-color: var(--Marrom_escuro);
     height: 700px;
-  
+
 }
-.title_pilar{
+
+.title_pilar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -62,7 +288,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 400px;;
+    height: 400px;
+    ;
 }
 
 .itens img {
@@ -78,65 +305,41 @@
 }
 
 
-/* dicas */
-.dica {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    background-image: url("../assets/img/global/mulher_box3.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 50%;
-    background-color: var(--Marrom_escuro);
-    height: 700px;
+/* Prévias --------------------------------------------------------------------------------------------------------------------------*/
 
-}
+.beneficios {
 
-.dica_container {
-    width: 45%;
-    height: 650px;
-    margin-right: 12%;
-    border-radius: 40px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dica_itens {
-    width: 70%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.dica_itens ul {
-    list-style: none;
-}
-
-.dica_itens a {
-    text-decoration: none;
-}
-
-
-/* Prévias */
-
-.previa {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_unico.png");
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
     background-color: var(--Marrom_escuro);
+    height: 1500px;
 }
-.previa_organize {
+
+.beneficios .fisico {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-image: url("../assets/img/global/altere_unico.png");
+}
+
+.beneficios .mental {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-image: url("../assets/img/global/altere_unico.png");
+}
+
+.beneficios .longevidade {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-image: url("../assets/img/global/altere_unico.png");
+}
+
+.beneficios_organize {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -148,9 +351,9 @@
     border-radius: 20px;
     opacity: 85%;
     margin-left: 12%;
- 
+
 }
 
-.previa p {
+.beneficios p {
     width: 90%;
 }
