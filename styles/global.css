@@ -7,14 +7,19 @@
     text-align: justify;
     font-family: "Poppins", sans-serif;
 }
-  
+
+body {
+    overflow-x: hidden;
+}
+
 :root {
-    --Laranja_escuro: #ff5512;
-    --Laranja_claro: #ff9300; 
-    --Azul_escuro: #4f61ff ;
-    --Azul_claro: #91d9ff;
-    --Marrom_escuro: #805240;
-    --Marrom_claro: #aa7a39;
+--Laranja_escuro: rgba(255, 85, 18, 1);
+--Laranja_claro: rgba(255, 147, 0, 1);
+--Azul_escuro: rgba(79, 97, 255, 0.954);
+--Azul_claro: rgba(142, 177, 199, 1);
+--Marrom_escuro: rgba(73, 59, 42, 1);
+--Marrom_claro: rgba(170, 122, 57, 1);
+
 }
 
 section{
@@ -32,4 +37,8 @@ h1 {
     border: none;
     color: white;
     background-color: var(--Laranja_escuro);
+}
+
+html {
+  scroll-behavior: smooth;
 }
