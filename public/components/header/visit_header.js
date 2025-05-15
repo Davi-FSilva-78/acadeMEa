@@ -5,9 +5,9 @@ class Header extends HTMLElement {
                 <div class="logo"></div>
                 <nav class="visit_header_container">
                     <ul class="list_visit_option">
-                        <li class="cadastro"> <a href="pages/cadastro.html">Cadastro</a></li>
+                        <li class="cadastro"> <a href="./cadastro.html">Cadastro</a></li>
                         |
-                        <li class="login"> <a href="pages/login.html">Login</a></li>     
+                        <li class="login"> <a href="./login.html">Login</a></li>     
                     </ul>
                 </nav>
             </header>
