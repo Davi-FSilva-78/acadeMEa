@@ -39,6 +39,9 @@ h1 {
     background-color: var(--Laranja_escuro);
 }
 
+button:hover {
+    cursor: pointer;
+}
 html {
   scroll-behavior: smooth;
 }

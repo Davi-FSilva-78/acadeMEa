@@ -134,10 +134,7 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
 
 .itens img {
     width: 100px;
-    border: 1px solid var(--Marrom_claro);
-    border-radius: 50px;
     padding: 30px;
-    background-color: var(--Marrom_claro);
 }
 
 .itens p {

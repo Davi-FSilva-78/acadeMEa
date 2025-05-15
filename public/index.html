@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>acadMEa - O site que te inspira</title>
     <!-- estilos css -->
-    <link rel="stylesheet" href="../styles/components.css">
-    <link rel="stylesheet" href="../styles/global.css">
-    <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/swiper.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/swiper.css">
     <!-- biblioteca de carrosel - estilos e funções -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- componentes importados -->
-    <script src="../components/header/visit_header.js"></script>
-    <script src="../components/footer/footer.js"></script>
+    <script src="./components/header/visit_header.js"></script>
+    <script src="./components/footer/footer.js"></script>
     <!--  importação de sessão -->
-    <script src="./js/sessao.js"></script>
+    <!-- <script src="./js/sessao.js"></script> -->
 
 </head>
 
@@ -39,7 +39,7 @@
                         <div class="slide-container jogos-container">
                             <h1>APRENDA JOGANDO</h1>
                             <h3> Descubra mais sobre musculação e se desafie com nossos jogos</h3>
-                            <button onclick="page='alert(`preencher variavel`)'; redirecionar()"
+                            <button onclick="page='jogos'; redirecionar()"
                                 class="button_redirecionar">JOGAR</button>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
 
             <div class="itens">
                 <div class="treino_adequado">
-                    <img src="../assets/icons/icons8-musculação-50.png" alt="">
+                    <img src="./assets/icons/icons8-musculação-50.png" alt="">
                     <h3>TREINO ADEQUADO </h3>
                     <p>É a base para o desenvolvimento muscular, isso envolve, levantar pesos desafiadores para
                         estimular o crescimento dos músculos ativando a hipertrofia, e efetuar séries intensas para
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="alimentacao_adequada">
-                    <img src="../assets/icons/icons8-caixa-de-legumes-64.png" alt="">
+                    <img src="./assets/icons/icons8-caixa-de-legumes-64.png" alt="">
                     <h3>ALIMENTAÇÃO SAUDÁVEL</h3>
                     <p>
                         É fundamental para musculação, sem ela, os músculos não terão os nutrientes necessários para
@@ -134,7 +134,7 @@
 
 
                 <div class="sono_adequado">
-                    <img src="../assets/icons/icons8-dormindo-na-cama-50.png" alt="">
+                    <img src="./assets/icons/icons8-dormindo-na-cama-50.png" alt="">
                     <h3>BOA NOITE DE SONO</h3>
                     <p>
                         É o segredo para sucesso nos treinos, pois o músculo só cresce realmente fora da academia,
@@ -219,6 +219,8 @@
             window.location.href = "./curiosidades.html";
         } else if (page == 'previas') {
             window.location.href = "./previas.html";
+        } else if ( page == 'jogos') {
+            window.location.href = "./locked/clickerGame.html";
         }
     }
 </script>
