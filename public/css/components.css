@@ -9,9 +9,9 @@ header {
 }
 
 .logo {
-    width: 15%;
+    width: 25%;
     height: 35px;
-    border-bottom: 3px solid black;
+    border-bottom: 6px solid var(--Azul_escuro);
     margin-bottom: 1%;
 }
 

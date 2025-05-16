@@ -14,6 +14,7 @@
 
   <!-- estilos css -->
   <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/loginCaadastro.css">
   <link rel="stylesheet" href="./css/global.css">
 </head>
 
@@ -21,7 +22,7 @@
   <!-- Header modularizado -->
   <main-header></main-header>
 
-  <div class="login">
+  <div class="form_login">
     <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
         <span id="mensagem_erro"></span>
@@ -29,6 +30,9 @@
     </div>
     <div class="container">
       <div class="card card-cadastro">
+        <nav>
+          <a href="index.html">← Voltar</a>
+        </nav>
         <h2>Bem-vindo!</h2>
         <div class="formulario">
           <!--
@@ -37,11 +41,15 @@
                      -->
           <div class="campo">
             <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
+            <input id="nome_input" type="text" placeholder="Ex: Pedro" />
+          </div>
+          <div class="campo">
+            <span>Sobrenome:</span>
+            <input id="sobre_nome_input" type="text" placeholder="Ex: Silva" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+            <input id="email_input" type="text" placeholder="Ex: meuemail@provedor.com" />
           </div>
           <div class="campo">
             <span>Senha:</span>
@@ -54,7 +62,7 @@
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+          <img src="./assets/gif/aguarde-orange.gif" id="loading-gif" />
         </div>
 
         <div id="div_erros_login"></div>
@@ -63,12 +71,7 @@
   </div>
 
   <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
+  <footer-main></footer-main>
   <!--footer fim-->
 </body>
 
@@ -85,23 +88,19 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
+    var sobrenomeVar = sobre_nome_input.value; //Puxa valor do campo novo da input
     var emailVar = email_input.value;
-    var cpfVar = cpf_input.value; //Puxa valor do campo novo da input
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular;
-
 
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
-      cpfVar == "" || // valida se campo novo esta em branco
+      sobrenomeVar == "" || // valida se campo novo esta em branco
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -123,13 +122,6 @@
 
       finalizarAguardar();
       return false;
-    } else if (!(cpfVar.length == 11)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(CPF deve ter 11 caracteres)";
-
-      finalizarAguardar();
-      return false;
     } else if (senhaVar.length <= 6 || !(confirmacaoSenhaVar == senhaVar)) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -142,19 +134,6 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -165,10 +144,9 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        sobrenomeServer: sobrenomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular,
-        cpfServer: cpfVar //adiciona novo campo para enviar ao routes
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
@@ -198,27 +176,8 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresasCadastradas.push(empresa);
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
 
-  //           console.log("listaEmpresasCadastradas")
-  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
-
-  // function sumirMensagem() {
-  //   cardErro.style.display = "none";
-  // }
 </script>
