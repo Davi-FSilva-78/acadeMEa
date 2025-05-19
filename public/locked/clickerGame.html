@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="inicio">
+        <h1> Seja bem vindo ao sUPino</h1>
+        <h3>Informe um peso em kg para iniciarmos</h3>
+        <input type="number" id="input_peso">
+        <button onclick="colocar_peso()"> confirmar peso</button>
+    </section>
+    <br><br><br><br>
+
+    <section>
+        <div id="div_cronometro" class="div_cronometro">
+            Tempo para acabar:
+        </div>
+        <div id="div_repeticoes" class="div_repeticoes">
+            Repeticoes:
+        </div>
+        <div id="div_nivel" class="div_nivel">
+            Nivel:
+        </div>
+
+        <div class="div_botao_forcar">
+            <button onclick="estimular()">Fazer força</button>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+<script>
+    var series = []; // variavel para armazenar as series realizadas e quantas repeticoes
+
+    var niveis = [1, 2, 3, 4, 5]; // todos os niveis do jogo - quero colocar o esforco aqui 
+    var nivel_atual = niveis[0]; // nivel atual do usuario
+
+    var esforco = 2; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
+
+    var clicks_nivel = peso * esforco; // variavel de quantos clicks o usuario precisa para 
+
+    var peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
+
+    var estimulo = 0; //variavel que irá armazenar quantos clicks o user está dando para levantar o peso
+
+    var repeticoes = 0; // quantas repeticoes o use rfez naquela série
+
+    function colocar_peso() {
+        peso = Number(input_peso.value);
+        alert(`o Peso escolhido foi ${peso} kg. Redirecionando para inicio do jogo`);
+
+        setTimeout(iniciar, 1000);
+    }
+
+    function iniciar() {
+        div_cronometro.innerHTML = 'Tempo para acabar:' + repeticoes;
+        div_repeticoes.innerHTML = 'Repeticoes:' + repeticoes;
+        div_nivel.innerHTML = 'Nivel:' + nivel_atual;
+
+        //soltar o tempo com interval
+
+    }
+
+    function estimular() {
+        // if (tempo > 0) {
+            clicks_nivel = peso * esforco;
+            estimulo++;
+
+            if (estimulo % clicks_nivel == 0) {
+                repeticoes++;
+            }
+            div_repeticoes.innerHTML = 'Repeticoes:' + repeticoes;
+        // } else {
+        //     // parar o tempo do interval
+        //     series[series.length] = repeticoes;
+        // }
+
+    }
+</script>
