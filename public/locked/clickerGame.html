@@ -13,23 +13,13 @@
         <h3>Informe um peso em kg para iniciarmos</h3>
         <input type="number" id="input_peso">
         <button onclick="colocar_peso()"> confirmar peso</button>
+
+        <div id="div_msm_inicio"></div>
     </section>
     <br><br><br><br>
 
-    <section>
-        <div id="div_cronometro" class="div_cronometro">
-            Tempo para acabar:
-        </div>
-        <div id="div_repeticoes" class="div_repeticoes">
-            Repeticoes:
-        </div>
-        <div id="div_nivel" class="div_nivel">
-            Nivel:
-        </div>
+    <section class="game" id="section_game">
 
-        <div class="div_botao_forcar">
-            <button onclick="estimular()">Fazer força</button>
-        </div>
     </section>
 
 </body>
@@ -52,35 +42,76 @@
 
     var repeticoes = 0; // quantas repeticoes o use rfez naquela série
 
+    var tempo = 20000
+    var intervalo = 0;
+
     function colocar_peso() {
         peso = Number(input_peso.value);
-        alert(`o Peso escolhido foi ${peso} kg. Redirecionando para inicio do jogo`);
+        div_msm_inicio.innerHTML = `
+        O peso escolhido foi ${peso} kg.
+        <br>
+        Renderizando conteúdo...`;
 
-        setTimeout(iniciar, 1000);
+        setTimeout(iniciar, 3000);
+        setTimeout(soltar_tempo, 3000)
     }
 
     function iniciar() {
-        div_cronometro.innerHTML = 'Tempo para acabar:' + repeticoes;
-        div_repeticoes.innerHTML = 'Repeticoes:' + repeticoes;
-        div_nivel.innerHTML = 'Nivel:' + nivel_atual;
+        var script = `
+        <div id="div_cronometro" class="div_cronometro">
+            Tempo para acabar: ${tempo/1000}s
+        </div>
+        <div id="div_repeticoes" class="div_repeticoes">
+           Repetições feitas: ${repeticoes}
+        </div>
+        <div id="div_nivel" class="div_nivel">
+          Nível: ${nivel_atual}
+        </div>
 
-        //soltar o tempo com interval
+        <div id="div_botao" class="div_botao_forcar" >
+            <button onclick="estimular()">Fazer força</button>
+        </div>
+        `;
 
+        section_game.innerHTML = script;
     }
 
     function estimular() {
-        // if (tempo > 0) {
-            clicks_nivel = peso * esforco;
-            estimulo++;
+        clicks_nivel = peso * esforco;
+        estimulo++;
 
-            if (estimulo % clicks_nivel == 0) {
-                repeticoes++;
+        if (estimulo % clicks_nivel == 0) {
+            repeticoes++;
+        }
+        
+        iniciar();
+    
+    }
+
+    function soltar_tempo() {
+        
+        iniciar();
+
+        if(tempo == 20000 ) {
+            intervalo = setInterval(soltar_tempo,1000);
+            tempo -= 1000;
+        }
+        else if (tempo > 0) {
+            tempo -= 1000;
+        } else {
+            clearInterval(intervalo)
+            estimulo = 0;
+            if (repeticoes >= 8 && repeticoes <= 12) {
+                section_game.innerHTML = `Você fez ${repeticoes}. Nesse ritmo vai ficar maior que o Hulk`;
+            } else if (repeticoes < 8) {
+                if (repeticoes >= 0 && repeticoes <=3) {
+                    section_game.innerHTML = `Você fez ${repeticoes}. Vamo treinar com vontade??!!`;
+                } else {
+                    section_game.innerHTML = `Você fez ${repeticoes}. Diminui o peso, cuidado com a lesão`;
+                }
+            } else if (repeticoes > 12) {
+                section_game.innerHTML = `Você fez ${repeticoes}. Esta treinando fofo, aumente esse peso`;
             }
-            div_repeticoes.innerHTML = 'Repeticoes:' + repeticoes;
-        // } else {
-        //     // parar o tempo do interval
-        //     series[series.length] = repeticoes;
-        // }
-
+        }
     }
 </script>
