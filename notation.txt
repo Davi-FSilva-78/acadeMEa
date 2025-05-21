@@ -1,0 +1,10 @@
+anotações:
+
+Levar ao banco de dados os dados:
+
+-Dados de cadastro
+
+
+- var nivel_atual = niveis[0][0]; // nivel atual do usuario
+- var esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
+
