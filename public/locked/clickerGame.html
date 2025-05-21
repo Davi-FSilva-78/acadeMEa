@@ -135,6 +135,7 @@
                     section_game.innerHTML = `Você fez ${repeticoes}. Vamo treinar com vontade??!!`;
                 } else {
                     section_game.innerHTML = `Você fez ${repeticoes}. Diminui o peso, cuidado com a lesão`;
+                    lista_series[lista_series.length] = repeticoes;
                 }
             } else if (repeticoes > 12) {
                 section_game.innerHTML = `Você fez ${repeticoes}. Esta treinando fofo, aumente esse peso`;
@@ -151,10 +152,9 @@
         tempo = 25000;
         if (lista_series.length >= 1) {
             esforco = esforco - 0.1;
-            for (var i = 0; i < lista_series.length; i++) {
-                if (lista_series[i][1] == esforco.toFixed(1)) {
-                    esforco = lista_series[i][1];
-                    nivel_atual = lista_series[i][1];
+            for (var i = 0; i < niveis.length; i++) {
+                if (niveis[i][1] == esforco.toFixed(1)) {
+                    nivel_atual = niveis[i][0];
                 }
             }
             lista_series = [];

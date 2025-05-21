@@ -6,22 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>acadMEa - Curiosidades</title>
     <!-- estilos css -->
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/curiosidades.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/curiosidades.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+
     <!-- biblioteca de carrosel - estilos e funções -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- componentes importados -->
-    <script src="./components/header/visit_header.js"></script>
-    <script src="./components/footer/footer.js"></script>
+    <script src="../components/header/user_header.js"></script>
+    <script src="../components/footer/footer.js"></script>
+    <script src="../components/components.js"></script>
+    <!--  importação de sessão -->
+    <!-- <script src="../js/sessao.js"></script> -->
 </head>
 
 <body>
 
     <div class="container">
         <!-- Header modularizado -->
-        <main-header></main-header>
+        <user-header></user-header>
 
         <!-- Seção de destaque com carrosel -->
 
@@ -31,7 +37,7 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="title">   
+                    <div class="title">
                         <h1>HISTÓRIA DA MUSCULAÇÃO</h1>
                         <h3>Da Antiguidade ao Século XIX: O Nascimento da Força</h3>
                     </div>
@@ -120,7 +126,7 @@
                                 <h3>Estudos mostram aumento da expectativa de vida com treino de força</h3>
                             </span>
 
-                        </a >
+                        </a>
                     </div>
                 </div>
             </div>
@@ -222,7 +228,7 @@
                 </div>
             </div>
 
-             <div class="eugene">
+            <div class="eugene">
                 <h2 id="eugene">Eugene Sandow – O Pai da Musculação</h2>
                 <div class="modernidade_organize">
 

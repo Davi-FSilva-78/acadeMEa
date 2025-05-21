@@ -58,6 +58,91 @@ header {
     color: #fff;
 }
 
+
+/* Tratamento pós login */
+
+.burguerSalas {
+    border: none;
+    background-color: none;
+    height: 30px;
+    width: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.burguerSalas:hover{
+    cursor: pointer;
+    height: 30.5px;
+    width:15.5%;
+   
+}
+
+.burguerSalas div{
+    height: 15%;
+    width: 100%;
+    color: white;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 40px;
+}
+
+.overlay{
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: all 0.4s ;
+}
+
+.overlaycontent{
+    position: relative;
+    top: 10%;
+    left: 5%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.overlay a {
+    text-decoration: none;
+    padding: 8px;
+    color: #fff;
+    display: block;
+    font-size: 24px ;
+    transition: 0.3s;
+}
+
+.overlay a {
+    text-decoration: none;
+    padding: 8px;
+    color: #b4b7ba;
+    display: block;
+    font-size: 30px ;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #fff;
+}
+
+.overlay .closeBtn {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    font-size: 50px;
+}
+
+
+
+
+
+
+
 /* Footer */
 footer {
     display: flex;
