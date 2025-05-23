@@ -5,23 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/game.css">
     <script src="../js/clicker.js"></script>
+
 </head>
 
-<body onload="plotar_inicio()">
+<body onload="plotar_game()">
     <main>
-        <section id="section_inicio" class="inicio">
 
+
+        <section id="section_inicio" class="inicio">
+            <div class="inicio-card" id="div_inicio_card">
+                <h1> Seja bem vindo ao sUPino</h1>
+                <h3>Informe um peso em kg para iniciarmos</h3>
+                <input type="number" id="input_peso" placeholder="Ex: 5">
+                <button id="button_colocar_peso" onclick="colocar_peso()">Fazer força</button>
+
+                <div id="div_msm_inicio"></div>
+            </div>
         </section>
-        <br><br><br><br>
 
         <section class="game" id="section_game">
 
         </section>
 
         <section id="section_animation">
-            
+
+            <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
+             <!-- <img class="supino descanso" src="../assets/img/game/f1.png" alt=""> -->
+            <!-- <img class="supino descanso" src="../assets/img/game/f2.png" alt="">  -->
         </section>
+
     </main>
 </body>
 

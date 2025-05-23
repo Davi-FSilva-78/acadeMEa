@@ -23,43 +23,67 @@ var tempo = 25000 //semudar aqui tem que mudar no soltar_tempo
 var intervalo = 0; //Variavél para armazenas o intervalo
 
 function plotar_inicio() {
-    section_inicio.innerHTML = `
-                <h1> Seja bem vindo ao sUPino</h1>
-                <h3>Informe um peso em kg para iniciarmos</h3>
-                <input type="number" id="input_peso">
-                <button onclick="colocar_peso()">Fazer força</button>
-                
-                <div id="div_msm_inicio"></div>
-            `;
+
+    div_inicio_card.style.width = '40%';
+    div_inicio_card.style.left = '25%';
+    div_inicio_card.style.top = '5%';
+
 
     section_game.innerHTML = ``;
 }
 
+function sumir_inicio() {
+    div_inicio_card.style.width = '0';
+    div_inicio_card.style.left = '0';
+}
+
 function colocar_peso() {
+
+    var contagemRegressiva = 5;
 
     peso = Number(input_peso.value);
 
     if (peso > 0) {
-
-        // Transformar em notificação
+        button_colocar_peso.disabled = true;
         div_msm_inicio.innerHTML = ` 
-            O peso escolhido foi ${peso} kg. Renderizando jogo... 
-            `;
+            <h3>O jogo começara hein:<h3/>`
+            +
+            `${contagemRegressiva}`;
 
-        setTimeout(plotar_game, 3000);
-        setTimeout(soltar_tempo, 3000);
+        var timer = setInterval(() => {
+            contagemRegressiva--;
+
+            if (contagemRegressiva > 1) {
+                div_msm_inicio.innerHTML = ` 
+                <h3>O jogo começara hein:<h3/>`
+                    +
+                    `${contagemRegressiva}`;
+            } else if (contagemRegressiva == 1) {
+                div_msm_inicio.innerHTML = ` 
+                    <h1>VAMOOO!!<h1/>
+            `;
+            } else {
+                clearInterval(timer);
+                soltar_tempo();
+            }
+
+        }, 1000);
 
     } else {
-        alert('Erro: um peso para iniciar.')
+        div_msm_inicio.innerHTML = '<h3>ERRO MAROMBISTICO 30g: Insira um valor de peso válido para iniciar.<h3/>';
     }
 
 }
 
 function soltar_tempo() {
 
+    sumir_inicio();
+    button_colocar_peso.disabled = false;
     plotar_game();
 
+
     if (tempo == 25000) {
+
         intervalo = setInterval(soltar_tempo, 1000);
         tempo -= 1000;
     }
@@ -90,21 +114,22 @@ function soltar_tempo() {
 
 function plotar_game() {
 
-    section_inicio.innerHTML = '';    
-    
+
+
     var script = `
+       <div class="placar">
         <div id="div_cronometro" class="div_cronometro">
             Tempo para acabar: ${tempo / 1000}s
         </div>
         <div id="div_repeticoes" class="div_repeticoes">
-           Repetições feitas: ${repeticoes}
+            Repetições feitas: ${repeticoes}
         </div>
         <div id="div_nivel" class="div_nivel">
-          Nível: ${nivel_atual}
+            Nível: ${nivel_atual}
         </div>
-
-        <div id="div_botao" class="div_botao_forcar" >
-            <button onclick="estimular()">Fazer força</button> 
+        </div>
+        <div id="div_botao" class="div_botao_forcar">
+            <button onclick="estimular()">Fazer força</button>
         </div>
         `;
 
@@ -129,7 +154,7 @@ function avaliar_nivel() {
     repeticoes = 0;
     estimulo = 0;
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
-    if (lista_series.length >= 9) { //A cada 9 serie completas o usuario sobe de nível
+    if (lista_series.length >= 9) { //A cada 9 serie completas o usuario sobe diminui seu esforco e pode subir de nivel dependendo do esforco
         esforco = esforco - 0.1;
         for (var i = 0; i < niveis.length; i++) {
             if (niveis[i][1] == esforco.toFixed(1)) {

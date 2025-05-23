@@ -117,14 +117,6 @@ header {
     transition: 0.3s;
 }
 
-.overlay a {
-    text-decoration: none;
-    padding: 8px;
-    color: #b4b7ba;
-    display: block;
-    font-size: 30px ;
-    transition: 0.3s;
-}
 
 .overlay a:hover, .overlay a:focus {
     color: #fff;
