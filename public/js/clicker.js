@@ -24,12 +24,16 @@ var intervalo = 0; //Variavél para armazenas o intervalo
 
 function plotar_inicio() {
 
-    div_inicio_card.style.width = '40%';
-    div_inicio_card.style.left = '25%';
-    div_inicio_card.style.top = '5%';
+    div_inicio_card.style.width = '70%';
+    div_inicio_card.style.left = '30%';
+    div_inicio_card.style.top = '10%';
 
 
     section_game.innerHTML = ``;
+
+    section_animation.innerHTML = `
+        <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
+    `;
 }
 
 function sumir_inicio() {
@@ -63,10 +67,13 @@ function colocar_peso() {
                     <h1>VAMOOO!!<h1/>
             `;
             } else {
+                div_msm_inicio.innerHTML = ``;
                 clearInterval(timer);
+                section_animation.innerHTML = `
+                    <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
+                 `;
                 soltar_tempo();
             }
-
         }, 1000);
 
     } else {
@@ -81,7 +88,6 @@ function soltar_tempo() {
     button_colocar_peso.disabled = false;
     plotar_game();
 
-
     if (tempo == 25000) {
 
         intervalo = setInterval(soltar_tempo, 1000);
@@ -91,31 +97,12 @@ function soltar_tempo() {
         tempo -= 1000;
     } else {
         clearInterval(intervalo);
-
-        if (repeticoes >= 8 && repeticoes <= 12) {
-            section_game.innerHTML = `Você fez ${repeticoes}. Nesse ritmo vai ficar maior que o Hulk`;
-            lista_series[lista_series.length] = repeticoes;
-        } else if (repeticoes < 8) {
-            if (repeticoes >= 0 && repeticoes <= 3) {
-                section_game.innerHTML = `Você fez ${repeticoes}. Vamo treinar com vontade??!!`;
-            } else {
-                section_game.innerHTML = `Você fez ${repeticoes}. Diminui o peso, cuidado com a lesão`;
-                lista_series[lista_series.length] = repeticoes;
-            }
-        } else if (repeticoes > 12) {
-            section_game.innerHTML = `Você fez ${repeticoes}. Esta treinando fofo, aumente esse peso`;
-            lista_series[lista_series.length] = repeticoes;
-        }
-
-        avaliar_nivel();
+        sumir_game();
     }
 }
 
 
 function plotar_game() {
-
-
-
     var script = `
        <div class="placar">
         <div id="div_cronometro" class="div_cronometro">
@@ -136,17 +123,81 @@ function plotar_game() {
     section_game.innerHTML = script;
 }
 
-
-
 function estimular() {
+    section_animation.innerHTML = `
+        <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
+    `;
     clicks_nivel = peso * esforco;
     estimulo++;
 
     if (estimulo % parseInt(clicks_nivel) == 0) {
+        section_animation.innerHTML = `
+        <img class="supino descanso" src="../assets/img/game/f2.png" alt="">
+    `;
         repeticoes++;
     }
 
     plotar_game();
+
+}
+
+function sumir_game() {
+    section_animation.innerHTML = `
+                    <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
+    `;
+
+    if (repeticoes >= 8 && repeticoes <= 12) {
+        section_game.innerHTML = `
+                <div class="mensagem_final">
+                    <nav>
+                        <a href="index.html">Sair do jogo</a>
+                    </nav>
+                    <h3> Fim de jogo</h3>
+                    <h3>Você fez ${repeticoes} repetições. Nesse ritmo vai ficar maior que o Hulk</h3>
+                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
+                </div>
+                `;
+        lista_series[lista_series.length] = repeticoes;
+    } else if (repeticoes < 8) {
+        if (repeticoes >= 0 && repeticoes <= 3) {
+            section_game.innerHTML = `
+                <div class="mensagem_final">
+                    <nav>
+                        <a href="index.html">Sair do jogo</a>
+                    </nav>
+                    <h3> Fim de jogo</h3>
+                    <h3>Você fez ${repeticoes} repetições. Vamo treinar com vontade??!!</h3>
+                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
+                </div>
+                `;
+        } else {
+            section_game.innerHTML = `
+                <div class="mensagem_final">
+                    <nav>
+                        <a href="index.html">Sair do jogo</a>
+                    </nav>
+                    <h3> Fim de jogo</h3>
+                    <h3>Você fez ${repeticoes} repetições. Diminui o peso, cuidado com a lesão</h3>
+                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
+                </div>
+                `;
+            lista_series[lista_series.length] = repeticoes;
+        }
+    } else if (repeticoes > 12) {
+        section_game.innerHTML = `
+                <div class="mensagem_final">
+                    <nav>
+                        <a href="index.html">Sair do jogo</a>
+                    </nav>
+                    <h3> Fim de jogo</h3>
+                    <h3>Você fez ${repeticoes} repetições. Esta treinando fofo, aumente esse peso!</h3>
+                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
+                </div>
+                `;
+        lista_series[lista_series.length] = repeticoes;
+    }
+
+    avaliar_nivel();
 
 }
 
@@ -156,6 +207,7 @@ function avaliar_nivel() {
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
     if (lista_series.length >= 9) { //A cada 9 serie completas o usuario sobe diminui seu esforco e pode subir de nivel dependendo do esforco
         esforco = esforco - 0.1;
+        //Adicionar evolução
         for (var i = 0; i < niveis.length; i++) {
             if (niveis[i][1] == esforco.toFixed(1)) {
                 nivel_atual = niveis[i][0];
@@ -164,8 +216,6 @@ function avaliar_nivel() {
         }
         lista_series = [];
     }
-
-    plotar_inicio()
 }
 
 
