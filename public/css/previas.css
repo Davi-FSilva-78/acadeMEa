@@ -1,3 +1,9 @@
+.swiper-pagination span {
+    background-color: var(--Laranja_escuro);
+}
+
+
+
 /* curiosidades */
 .curiosidade {
     background-repeat: no-repeat;

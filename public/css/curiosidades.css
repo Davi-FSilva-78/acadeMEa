@@ -14,6 +14,10 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
     color: #fff;
 }
 
+.swiper-pagination span {
+    background-color: var(--Laranja_escuro);
+}
+
 
 .swiper-slide {
     display: flex;

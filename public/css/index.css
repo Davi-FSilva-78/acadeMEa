@@ -10,6 +10,10 @@ bullet- estilos para o elemento de marcador de paginação
 bullet-active- estilos para o elemento de marcador de paginação ativo
 scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
 
+.swiper-pagination span {
+    background-color: var(--Laranja_escuro);
+}
+
 .swiper .swiper-slide{
     display: flex;
     align-items: center;

@@ -1,6 +1,6 @@
 
     function openNav() {
-        myNav.style.width = '40%'
+        myNav.style.width = '25%'
     }
 
     function closeNav() {

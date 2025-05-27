@@ -108,10 +108,16 @@ header {
     margin-top: 30px;
 }
 
+.overlay #b_usuario {
+    position: relative;
+    left: 5%;
+    top: 5%;
+}
+
 .overlay a {
     text-decoration: none;
-    padding: 8px;
-    color: #fff;
+    padding: 5px;
+    color: rgba(255,255,255, 1);
     display: block;
     font-size: 24px ;
     transition: 0.3s;
@@ -119,20 +125,29 @@ header {
 
 
 .overlay a:hover, .overlay a:focus {
-    color: #fff;
+    color: rgba(255,255,255, 0.5);
 }
 
 .overlay .closeBtn {
-    position: absolute;
-    left: 1%;
+    position: relative;
+    left: 5%;
     top: 1%;
     font-size: 50px;
 }
 
+.btn-logout {
+    color: rgba(225,68,72, 0.7);
+    width: 100%;
+    font-size: 24px ;
+    padding-top: 10%;
+    position: relative;
+    left: 40%;
+}
 
-
-
-
+.btn-logout:hover, .btn-logout:focus {
+    color: rgba(225,68,72, 1);
+    cursor: pointer;
+}
 
 
 /* Footer */

@@ -2,10 +2,25 @@ var lista_series = []; // variavel para armazenar as series realizadas e quantas
 
 var niveis = [
     [1, 2],
-    [2, 1.5],
-    [3, 1],
-    [4, 0.5],
-    [5, 0.1]
+    [2, 1.9],
+    [3, 1.8],
+    [4, 1.7],
+    [5, 1.6],
+    [6, 1.5],
+    [7, 1.4],
+    [8, 1.3],
+    [9, 1.2],
+    [10, 1.1],
+    [11, 1],
+    [12, 0.9],
+    [13, 0.8],
+    [14, 0.7],
+    [15, 1.6],
+    [16, 1.5],
+    [17, 0.4],
+    [18, 0.3],
+    [19, 0.2],
+    [20, 0.1]
 ];// todos os niveis do jogo com o esforco equivalente
 var nivel_atual = niveis[0][0]; // nivel atual do usuario
 
@@ -143,7 +158,7 @@ function estimular() {
 
 function sumir_game() {
     section_animation.innerHTML = `
-                    <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
+        <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
     `;
 
     if (repeticoes >= 8 && repeticoes <= 12) {
@@ -152,7 +167,7 @@ function sumir_game() {
                     <nav>
                         <a href="index.html">Sair do jogo</a>
                     </nav>
-                    <h3> Fim de jogo</h3>
+                    <h1>Fim de jogo</h1>
                     <h3>Você fez ${repeticoes} repetições. Nesse ritmo vai ficar maior que o Hulk</h3>
                     <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 </div>
@@ -165,7 +180,7 @@ function sumir_game() {
                     <nav>
                         <a href="index.html">Sair do jogo</a>
                     </nav>
-                    <h3> Fim de jogo</h3>
+                    <h1>Fim de jogo</h1>
                     <h3>Você fez ${repeticoes} repetições. Vamo treinar com vontade??!!</h3>
                     <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 </div>
@@ -176,7 +191,7 @@ function sumir_game() {
                     <nav>
                         <a href="index.html">Sair do jogo</a>
                     </nav>
-                    <h3> Fim de jogo</h3>
+                    <h1>Fim de jogo</h1>
                     <h3>Você fez ${repeticoes} repetições. Diminui o peso, cuidado com a lesão</h3>
                     <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 </div>
@@ -189,7 +204,7 @@ function sumir_game() {
                     <nav>
                         <a href="index.html">Sair do jogo</a>
                     </nav>
-                    <h3> Fim de jogo</h3>
+                    <h1>Fim de jogo</h1>
                     <h3>Você fez ${repeticoes} repetições. Esta treinando fofo, aumente esse peso!</h3>
                     <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 </div>
@@ -205,7 +220,7 @@ function avaliar_nivel() {
     repeticoes = 0;
     estimulo = 0;
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
-    if (lista_series.length >= 9) { //A cada 9 serie completas o usuario sobe diminui seu esforco e pode subir de nivel dependendo do esforco
+    if (lista_series.length >= 6) { //A cada 9 serie completas o usuario sobe diminui seu esforco e pode subir de nivel dependendo do esforco
         esforco = esforco - 0.1;
         //Adicionar evolução
         for (var i = 0; i < niveis.length; i++) {
@@ -216,6 +231,17 @@ function avaliar_nivel() {
         }
         lista_series = [];
     }
+}
+
+function enviar_banco() {
+    lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
+
+    nivel_atual = niveis[0][0]; // nivel atual do usuario
+
+    esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
+
+    peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
+
 }
 
 

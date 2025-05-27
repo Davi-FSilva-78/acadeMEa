@@ -5,6 +5,7 @@ class Header extends HTMLElement {
 
             <nav class="overlay" id="myNav">
                 <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
+                <h1 id="b_usuario"></h1>
                 <div class="overlaycontent">
                     <a href="../../locked/index.html">Home</a>
                     <hr>
@@ -14,7 +15,10 @@ class Header extends HTMLElement {
                     <hr>
                     <a href="../../locked/clickerGame.html">Jogos</a>
                     <a href="../../locked/dashboard/dashboard.html">Dashboard</a>
-                    
+                    <hr  
+                </div>
+                <div class="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
                 </div>
             </nav>
             
