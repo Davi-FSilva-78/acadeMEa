@@ -1,9 +1,88 @@
 anotações:
 
-Levar ao banco de dados os dados:
+Graficos e KPIS:
 
--Dados de cadastro
+KPIS :
 
-- var nivel_atual = niveis[0][0]; // nivel atual do usuario
-- var esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
-- tamanho da lista_series
+1 - Como está meu progresso de níveis? Medir o nivel que o usuario está e quantos tem no máximo
+2 - Meu nível comparado com os outros players está bom? Mensurar em qual posição o usuario está rankeado nos níveis gerais
+3 - Estou levantando bastante peso? Mensurar em qual posição o usuario está rankeado nos pesos gerais
+
+
+Gráficos:
+- evoluçã0 de níveis do usuario no geral - Linha
+- Exibir a comparação de niveis e/ou peso em gráfico, sair um pouco da KPIS - o problema é se tiver muitos users
+- Tendência, ond epegarei o histórico recente e farei um calculo para onde eleirá chegar seguindo no mesmo nível
+- Gráfico medidor para mostrar ao usuario o quã operto ele está do próximo nível, esse gráfico neme precisaria d ebanco de dados
+
+Ideias para trazer no banco de dados:
+- Fazer um esquema que eu avalio a quantidade de estimulos, o peso e o nível, para considerar e incentivar o user a fazer no limite
+Ex: uma pessoa nivel um que levante 10 kg e uma pessoa nivel 5 que levantou 10 kg, o nivel 5 esta treinando fofo o nivel 1 ta trreinando pesado, poderia ter um ranking de trieno fofo, consideravel e intenso - o problema é que é um jogo clicker mais informativo que divertido e isso pode expulsar os usuario e nunca mais jogarem
+
+
+
+Extras: 
+Adicionar mensagens motivacionais - "Você bateu seu recorde de estímulo!", "Você treinou mais pesado que 80% dos usuários hoje!"
+Adicionar mensagens com base em estmulos também.
+Adicionar mensagens durante as repetições - Ex: A cada 3 cliques: "Mais uma! Foco!", "Você tá quase lá!"
+Adicionar Mensagem de evolução de níveis e mostrar histórico
+Adicionar função para resetar valores - "Tem certeza que deseja reiniciar seus dados? Essa ação não pode ser desfeita."
+Adicionar função para regredir os niveis
+Adicionar função para desbloqueaveis - Ex: "Levantou 100 kg no total", "Fez 10 treinos seguidos", "Chegou ao nível 5" Estilo Steam/Achievements do Xbox
+Adicionar função para calcular intensidade - intensidade = (peso * clicks) / nível
+
+
+----------------------------------------------------------------------------------------------------------------------
+TELA DO JOGO
+
+[ Repetições | Tempo | Peso Atual ]
+[ Finalizar Sessão  ]
+
+
+PAINEL PÓS-TREINO
+
+
+Estímulo do treino:
+Estímulo: INTENSO 
+Peso: 12kg
+Nível atual: 3
+
+Evolução:
+XP ganho nesta sessão: +24
+Próximo nível em: 56 XP
+
+Histórico recente:
+| Data  | Peso | Nível |
+|-------|------|-------|
+| 27/05 | 12kg | 3     |
+| 26/05 | 10kg | 2     |
+ 
+ Mensagem motivacional:
+"Você ultrapassou seu próprio recorde hoje!"
+
+[  Jogar Novamente ]  [  Ir para Dashboard ]
+----------------------------------------------------------------------------------------------------------------------
+
+ DASHBOARD PRINCIPAL
+
+[ KPI 1 - Progresso de Nível ]
+Nível atual: 5 / 10
+
+[ KPI 2 - Ranking de Nível ]
+Sua posição: 12º de 120
+
+[ KPI 3 - Ranking de Peso ]
+Sua posição: 9º de 120
+
+──────────────────────
+GRÁFICOS:
+ Evolução de Nível (linha)
+ Tendência futura (projeção)
+ 7 melhores pesos (barra)
+
+a fazer:     
+
+    intensidade
+    historico
+    msm_motivacional
+    encaminhar()

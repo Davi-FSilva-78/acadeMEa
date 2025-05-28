@@ -1,5 +1,7 @@
-var lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
 
+// Variaveis para controle de nivel -------------------------------------------------------------------------------------------------------------------------------------------
+
+var lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
 var niveis = [
     [1, 2],
     [2, 1.9],
@@ -21,21 +23,22 @@ var niveis = [
     [18, 0.3],
     [19, 0.2],
     [20, 0.1]
-];// todos os niveis do jogo com o esforco equivalente
+];
 var nivel_atual = niveis[0][0]; // nivel atual do usuario
-
 var esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
 
+// Variaveis de configurações do game
 var clicks_nivel = peso * esforco; // variavel de quantos clicks o usuario precisa para 
-
 var peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
-
 var estimulo = 0; //variavel que irá armazenar quantos clicks o user está dando para levantar o peso
+var intensidade = (peso * clicks_nivel) / nivel_atual;
+var historico = 'bobocas';
 
+// Variaveis reboot
 var repeticoes = 0; // quantas repeticoes o use rfez naquela série
-
 var tempo = 25000 //semudar aqui tem que mudar no soltar_tempo
 var intervalo = 0; //Variavél para armazenas o intervalo
+
 
 function plotar_inicio() {
 
@@ -50,11 +53,130 @@ function plotar_inicio() {
         <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
     `;
 }
+function plotar_game() {
+    var script = `
+       <div class="placar">
+        <div id="div_cronometro" class="div_cronometro">
+            Tempo para acabar: ${tempo / 1000}s
+        </div>
+        <div id="div_repeticoes" class="div_repeticoes">
+            Repetições feitas: ${repeticoes}
+        </div>
+        <div id="div_nivel" class="div_nivel">
+            Nível: ${nivel_atual}
+        </div>
+        </div>
+        <div id="div_botao" class="div_botao_forcar">
+            <button onclick="estimular()">Fazer força</button>
+        </div>
+        `;
+
+    section_game.innerHTML = script;
+}
+
 
 function sumir_inicio() {
     div_inicio_card.style.width = '0';
     div_inicio_card.style.left = '0';
 }
+function sumir_game() {
+    var msm_motivacional = '';
+
+    lista_series[lista_series.length] = repeticoes;
+
+    // A ordem importa, aqui
+    intensidade = avaliar_intensidade();
+    msm_motivacional = fazer_msm_motivacional();
+    historico = fazer_historico();
+
+    
+    section_animation.innerHTML = `
+    <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
+    `;
+
+    section_game.innerHTML = `
+        <div class="mensagem_final">
+            <nav>
+                <a href="index.html">←</a>
+            </nav>
+
+            <h1>Fim de jogo</h1>
+
+            <div class="historico">
+                <div class="left">
+                    <div>
+                        <h3> Histórico recente:</h3>
+                        <span>${historico}</span>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div>
+                        <h3>Resumo da partida:</h3>
+                        <span><b>Estímulos:</b> ${estimulo}</span>
+                        <span><b>Peso:</b> ${peso} kg</span>
+                        <span><b>Nível atual:</b> ${nivel_atual}</span>
+                        <span><b>Intensidade:</b> ${intensidade}</span>
+
+                    </div>
+
+                    <div>
+                        <h3>Evolução:</h3>
+                        <span><b>Séries feitas hoje:</b> ${lista_series.length}</span>
+                        <span><b>Próximo nível em:</b> ${6 - lista_series.length} série(s)</span>
+                    </div>
+
+
+                    <div>
+                        <h3> Status:</h3>
+                        <span>"${msm_motivacional}"</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="buttons">
+                <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
+                |
+                <a id="a_dashboard" onclick="encaminhar('dashboard')">Ir para dashboard</a>
+            </div>
+
+
+        </div>
+            `;
+
+    avaliar_nivel();
+
+}
+
+
+function avaliar_intensidade() {
+    if (intensidade >= 60) {
+        return 'Treino intenso 🔥';
+    } else if (intensidade >= 20) {
+        return 'Treino moderado 💪';
+    } else {
+        return 'Treino fofo 🛌';
+    }
+}
+function avaliar_nivel() {
+
+    resetar_valores();
+
+    if (lista_series.length % 6 == 0) {
+        esforco = esforco - 0.1;
+        //Adicionar evolução
+        for (var i = 0; i < niveis.length; i++) {
+            if (niveis[i][1] == esforco.toFixed(1)) {
+                nivel_atual = niveis[i][0];
+                alert(`Parabéns! Você alcançou o nível ${nivel_atual}`);
+                // Adicionar evento para mostrar que usuario aumentou o nível
+            }
+        }
+    }
+}
+
 
 function colocar_peso() {
 
@@ -116,28 +238,6 @@ function soltar_tempo() {
     }
 }
 
-
-function plotar_game() {
-    var script = `
-       <div class="placar">
-        <div id="div_cronometro" class="div_cronometro">
-            Tempo para acabar: ${tempo / 1000}s
-        </div>
-        <div id="div_repeticoes" class="div_repeticoes">
-            Repetições feitas: ${repeticoes}
-        </div>
-        <div id="div_nivel" class="div_nivel">
-            Nível: ${nivel_atual}
-        </div>
-        </div>
-        <div id="div_botao" class="div_botao_forcar">
-            <button onclick="estimular()">Fazer força</button>
-        </div>
-        `;
-
-    section_game.innerHTML = script;
-}
-
 function estimular() {
     section_animation.innerHTML = `
         <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
@@ -156,91 +256,54 @@ function estimular() {
 
 }
 
-function sumir_game() {
-    section_animation.innerHTML = `
-        <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
-    `;
 
-    if (repeticoes >= 8 && repeticoes <= 12) {
-        section_game.innerHTML = `
-                <div class="mensagem_final">
-                    <nav>
-                        <a href="index.html">Sair do jogo</a>
-                    </nav>
-                    <h1>Fim de jogo</h1>
-                    <h3>Você fez ${repeticoes} repetições. Nesse ritmo vai ficar maior que o Hulk</h3>
-                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
-                </div>
-                `;
-        lista_series[lista_series.length] = repeticoes;
-    } else if (repeticoes < 8) {
-        if (repeticoes >= 0 && repeticoes <= 3) {
-            section_game.innerHTML = `
-                <div class="mensagem_final">
-                    <nav>
-                        <a href="index.html">Sair do jogo</a>
-                    </nav>
-                    <h1>Fim de jogo</h1>
-                    <h3>Você fez ${repeticoes} repetições. Vamo treinar com vontade??!!</h3>
-                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
-                </div>
-                `;
-        } else {
-            section_game.innerHTML = `
-                <div class="mensagem_final">
-                    <nav>
-                        <a href="index.html">Sair do jogo</a>
-                    </nav>
-                    <h1>Fim de jogo</h1>
-                    <h3>Você fez ${repeticoes} repetições. Diminui o peso, cuidado com a lesão</h3>
-                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
-                </div>
-                `;
-            lista_series[lista_series.length] = repeticoes;
-        }
-    } else if (repeticoes > 12) {
-        section_game.innerHTML = `
-                <div class="mensagem_final">
-                    <nav>
-                        <a href="index.html">Sair do jogo</a>
-                    </nav>
-                    <h1>Fim de jogo</h1>
-                    <h3>Você fez ${repeticoes} repetições. Esta treinando fofo, aumente esse peso!</h3>
-                    <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
-                </div>
-                `;
-        lista_series[lista_series.length] = repeticoes;
+// Auxiliares
+function fazer_historico() {
+    var msm_historico = ``;
+    for (var i = 0; i < lista_series.length; i++) {
+        msm_historico += `
+            Série: ${i+1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
+        `;
     }
 
-    avaliar_nivel();
+    return msm_historico;
+}
+function fazer_msm_motivacional() {
+    var lista_msm = [
+        `Está treinando muito fofo, vamo aumentar esse peso?!!`,
+        `Seu treino está OK...Mas da para aumentar a intensidade`,
+        `Você está treiando muito bem, continue assim para evoluir de nível`,
+        `Falta uma série para ir embora...VAMOOOOO!!!`
+    ]
 
+    if ((lista_series.length + 1) == 6) {
+        return lista_msm[3]
+    } else if (intensidade == 'Treino intenso 🔥') {
+        return lista_msm[2];
+    } else if (intensidade == 'Treino moderado 💪') {
+        return lista_msm[1];
+    } else if (intensidade == 'Treino fofo 🛌') {
+        return lista_msm[0];
+    }
 }
 
-function avaliar_nivel() {
+function resetar_valores() {
     repeticoes = 0;
     estimulo = 0;
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
-    if (lista_series.length >= 6) { //A cada 9 serie completas o usuario sobe diminui seu esforco e pode subir de nivel dependendo do esforco
-        esforco = esforco - 0.1;
-        //Adicionar evolução
-        for (var i = 0; i < niveis.length; i++) {
-            if (niveis[i][1] == esforco.toFixed(1)) {
-                nivel_atual = niveis[i][0];
-                // Adicionar evento para mostrar que usuario aumentou o nível
-            }
-        }
-        lista_series = [];
-    }
 }
 
 function enviar_banco() {
-    lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
+    
+    // post
+    idUsuario;
+    peso;
+    estimulo;
+    clicks_nivel;
+    nivel_atual;
+    esforco;
+    intensidade;
 
-    nivel_atual = niveis[0][0]; // nivel atual do usuario
-
-    esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
-
-    peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
 
 }
 
