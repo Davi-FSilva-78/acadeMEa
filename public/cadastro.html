@@ -14,7 +14,7 @@
 
   <!-- estilos css -->
   <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/loginCaadastro.css">
+  <link rel="stylesheet" href="./css/loginCadastro.css">
   <link rel="stylesheet" href="./css/global.css">
 </head>
 
@@ -28,6 +28,7 @@
         <span id="mensagem_erro"></span>
       </div>
     </div>
+    
     <div class="container">
       <div class="card card-cadastro">
         <nav>
@@ -80,7 +81,7 @@
 <script>
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  // let listaEmpresasCadastradas = [];
 
   function cadastrar() {
     // aguardar();
@@ -159,7 +160,7 @@
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "login.html"; 
           }, "2000");
 
           limparFormulario();
@@ -170,7 +171,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        finalizarAguardar(resposta);
       });
 
     return false;

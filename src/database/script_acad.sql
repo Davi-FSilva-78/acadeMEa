@@ -8,7 +8,7 @@ create table usuario (
 	idUsuario int primary key auto_increment,
     nome varchar (30) not null,
     sobrenome varchar(50) not null,
-    email varchar(50) not null,
+    email varchar(50) not null unique,
     senha varchar(20) not null
 );
 

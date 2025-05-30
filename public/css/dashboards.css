@@ -25,13 +25,13 @@ body {
 
 
 .main {
-    background-color: var(--Azul_claro);
-    height: 100dvh;
+    background-color: rgba(35,35,142, 1);
+    height: 90dvh;
     flex-grow: 1;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     /*Manter a side bar fixa e constante*/
 }
@@ -86,21 +86,26 @@ body {
 .kpis {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    width: 30%;
+    width: 15%;
+    height: 100%;
+    position: relative;
+    top: 5%;
 }
 
 .kpi {
     background: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     width: 100%;
     /*Manter uma pagina bem distribuida*/
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px ;   
+    height: 20%;
 }
 
 .tipos-manutencao {
@@ -109,7 +114,7 @@ body {
     border-radius: 10px;
     flex: 1;
     /*Manter uma pagina bem distribuida*/
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -132,19 +137,20 @@ body {
 
 /* Parte dos graficos */
 .chart-container {
-    width: 60%;
+    /* width: 60mbctctu; */
     height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 78%;
 }
 
 .chart-container .charts {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height:40%;
+    height: 47%;
     width: 100%;
 }
 
@@ -155,7 +161,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 30%;
 }
