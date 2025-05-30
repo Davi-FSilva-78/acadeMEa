@@ -29,50 +29,40 @@
 
 <body onload="validarSessao()">
 
-    <nav class="sidebar">
-        <div class="userContainer">
-            <!-- <img src="../../pictures/female_woman_avatar_people_person_white_tone_icon_159370.png" alt="User"> -->
-            <h2 id="b_usuario">User</h2>
-            <p id="e_usuario">Email</p>
-        </div>
-        <div class="pagescontainer">
-            <a href="dashboard.html"><i class="fas fa-home"></i> Paínel geral</a>
-            <a href="dashboardSensor.html"><i class="fas fa-home"></i> Salas</a>
-            <a href="#"><i class="fas fa-home"></i> Suporte técnico</a>
-        </div>
-        <div class="logoutContainer">
-            <a href="index.html"><i class="fas fa-home"></i> Logout</a>
-        </div>
-    </nav>
-
+    <user-header></user-header>
+    
     <div class="main">
 
         <div class="kpis">
 
             <div class="kpi">
-                <div><strong>23 dias</strong><br>Sem vazamentos</div><i class="fas fa-calendar-check"></i>
+                <div>Progresso de nível<br><strong>Nivel atual: ${5} de 20</strong></div><i class="info"></i>
             </div>
             <div class="kpi">
-                <div><strong>última atualização</strong><br>há 5 segundos</div><i class="fas fa-heartbeat"></i>
+                <div>Ranking de nível<br><strong>Sua posição: ${3}º de ${120}</strong></div><i class="info"></i>
             </div>
             <div class="kpi">
-                <div><strong>4/4</strong><br>Sensores ativos</div><i class="fas fa-microchip"></i>
+                <div>Ranking de Peso<br><strong>Sua posição: ${9º} de ${120}</strong></div><i class="info"></i>
             </div>
             <!-- <div class="kpi"><div><strong>7</strong><br>Dias para manutenção</div><i class="fas fa-microchip"></i></div> -->
         </div>
+        
         <div class="chart-container">
+
+            <div class="chart-box3">
+                <canvas id="chart1" class="chart1"></canvas>
+            </div>
+            
             <div class="charts">
                 <div class="chart-box">
-                    <canvas id="chart1" class="chart1"></canvas>
+                    <canvas id="chart2" class="chart2"></canvas>
                 </div>
                 <div class="chart-box2">
-                    <canvas id="chart2" class="chart2"></canvas>
+                    <canvas id="chart3" class="chart3"></canvas>
                 </div>
             </div>
 
-            <div class="chart-box3">
-                <canvas id="chart3" class="chart3"></canvas>
-            </div>
+
         </div>
     </div>
 </body>
@@ -82,26 +72,27 @@
 <script>
 
     // Gráfico de barras
-    new Chart(document.getElementById("chart1"), {
+    new Chart(document.getElementById("chart1"), {  
         type: 'bar',
         data: {
-            labels: ['Sala das Máquinas', 'Câmara de Resfriamento', 'Câmara de Estocagem', 'Túnel Congelador'],
+            labels: ['Dia x', 'Dia x', 'Dia x', 'Dia x', 'Dia x', 'Dia x', 'Dia x'],
             datasets: [{
                 label: 'ppm',
-                data: [7, 4, 2, 5],
-                backgroundColor: ['#1F77B4', '#FF7F0E', '#2CA02C', '#9467BD']
+                data: [7, 6, 5, 4, 3, 2, 1],
+                backgroundColor: ['#1F77B4']
             }]
         },
         options: {
+            indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
                 legend: { display: false },
                 title: {
                     display: true,
-                    text: 'Níveis médios de Amônia por Setor (ppm)',
+                    text: 'Os 7 melhores pesos',
                     font: {
-                        size: 12
+                        size: 14
                     }
                 }
             },
@@ -111,28 +102,47 @@
                         font: {
                             size: 8
                         }
-                    }
+                    },  
+                    title: {
+                        display: true,
+                        text: '(kg)',
+                        font: {
+                            size: 12
+                        }
+                    },
                 },
                 y: {
                     ticks: {
                         font: {
                             size: 8
                         }
-                    }
+                    }, title: {
+                        display: true,
+                        text: 'Dias',
+                        font: {
+                            size: 12
+                        }
+                    },
                 }
             }
         }
     });
 
-    // Gráfico de donut
+    // Gráfico de radar
     new Chart(document.getElementById("chart2"), {
-        type: 'doughnut',
+        type: 'radar',
         data: {
-            labels: ['Sala das Máquinas', 'Câmara de Resfriamento', 'Câmara de Estocagem', 'Túnel Congelador'],
+            labels: ['Força', 'Intensidade', 'Constância', 'Estímulo'],
             datasets: [{
-                label: 'Incidentes',
-                data: [45, 20, 10, 23],
-                backgroundColor: ['#1F77B4', '#FF7F0E', '#2CA02C', '#9467BD']
+                label: 'USER',
+                fill: true,
+                data: [5, 7, 7, 7],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
             }]
         },
         options: {
@@ -149,9 +159,28 @@
                 },
                 title: {
                     display: true,
-                    text: 'Distribuição de vazamentos (%)',
+                    text: 'Panorama Geral',
                     font: {
                         size: 12
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            },
+            scales: {
+                r: { // Este é o objeto do eixo radial
+                    angleLines: {
+                        display: true
+                    },
+                    // *** As opções abaixo devem estar DENTRO do objeto 'r' ***
+                    suggestedMin: 0,
+                    suggestedMax: 10,
+                    ticks: {
+                        beginAtZero: true,
+                        // stepSize: 1 // Descomente e ajuste se precisar de espaçamento específico
                     }
                 }
             }
@@ -162,45 +191,20 @@
     new Chart(document.getElementById("chart3"), {
         type: 'line',
         data: {
-            labels: ['12:00', '12:01', '12:02', '12:03', '12:04', '12:05'],
+            labels: ['1', '2', '3', '4', '5', '6', '7'],
             datasets: [
                 {
-                    label: 'Sensor 1',
-                    data: [0, 2, 2, 5, 10, 5],
+                    label: 'USER',
+                    data: [0, 2, 2, 5, 5, 5],
                     borderColor: '#1F77B4',
                     fill: false
-                },
-                {
-                    label: 'Sensor 2',
-                    data: [0, 0, 0, 7, 10, 11],
-                    borderColor: '#FF7F0E',
-                    fill: false
-                },
-                {
-                    label: 'Sensor 3',
-                    data: [1, 1, 1, 0, 1, 0],
-                    borderColor: '#2CA02C',
-                    fill: false
-                },
-                {
-                    label: 'Sensor 4',
-                    data: [15, 12, 8, 2, 1, 1],
-                    borderColor: '#9467BD',
-                    fill: false
-                },
-                {
-                    label: 'Máximo permitido',
-                    data: [20, 20, 20, 20, 20, 20],
-                    borderColor: '#FF0000',
+                }, {
+                    label: 'Projeção',
+                    data: [0, 2, 2, 5, 5, 5, 8],
+                    borderColor: '#1F77B4',
                     borderDash: [5, 5],
-                    fill: false
-                },
-                {
-                    label: 'Alerta',
-                    data: [10, 10, 10, 10, 10, 10],
-                    borderColor: '#FFD700',
-                    borderDash: [5, 5],
-                    fill: false
+                    fill: false,
+
                 }
             ]
         },
@@ -210,9 +214,9 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Histórico de Concentração de Amônia (ppm)',
+                    text: 'Evolução de níveis do USER no mês',
                     font: {
-                        size: 12
+                        size: 14
                     }
                 },
                 legend: {
@@ -231,14 +235,28 @@
                         font: {
                             size: 8
                         }
-                    }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Níveis',
+                        font: {
+                            size: 12
+                        }
+                    },
                 },
                 x: {
                     trick: {
                         font: {
                             size: 8
                         }
-                    }
+                    },
+                     title: {
+                        display: true,
+                        text: 'Dias',
+                        font: {
+                            size: 12
+                        }
+                    },
                 }
             }
         }

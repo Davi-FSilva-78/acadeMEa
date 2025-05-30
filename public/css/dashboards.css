@@ -20,26 +20,25 @@
 
 /* Pagina geral */
 body {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+    height: 100dvh;
 }
 
 
 .main {
     background-color: var(--Azul_claro);
-    height: 100%;
+    height: 100dvh;
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     /*Manter a side bar fixa e constante*/
 }
 
 .sidebar {
-    width: 25%;
+    width: 20%;
+    /* background-color: var(--Azul_escuro); */
     color: var(--Azul_escuro);
     display: flex;
     flex-direction: column;
@@ -86,16 +85,17 @@ body {
 /* Conteudo gráfico ------------------------------------------------------------------------------------------------------------------*/
 .kpis {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 30%;
 }
 
 .kpi {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 28%;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
     /*Manter uma pagina bem distribuida*/
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -132,8 +132,8 @@ body {
 
 /* Parte dos graficos */
 .chart-container {
-    width: 90%;
-    height: 75%;
+    width: 60%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,7 +144,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40%;
+    height:40%;
     width: 100%;
 }
 
@@ -156,9 +156,11 @@ body {
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    height: 200px;
-    width: 65%;
+    height: 100%;
+    width: 30%;
 }
+
+
 
 .chart-container .charts .chart-box2 {
     padding: 10px;
@@ -168,21 +170,19 @@ body {
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    height: 200px;
-    width: 30%;
+    height: 100%;
+    width:63%;
 }
 
 .chart-box3 {
     background: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    height: 100% !important;
+    height: 48% !important;
     width: 100% !important;
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0 10px 10px;
 }
 
 
