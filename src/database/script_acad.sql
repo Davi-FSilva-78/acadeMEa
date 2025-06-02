@@ -12,14 +12,15 @@ create table usuario (
     senha varchar(20) not null
 );
 
-create table login (
+
+/* create table login (
 	idLogin int auto_increment,
     fkUsuario int,
     constraint cpkLogin primary key(idLogin, fkUsuario),
     ultimoAcesso datetime default current_timestamp,
     constraint cfkLoginUsuario foreign key (fkUsuario)
 		references usuario(idUsuario)
-);
+); */
 
 -- ------------------------------------------------------------------Create do partidas ---------------------------------------------------------------------------------------------------------------------------------------
 create table jogo (
@@ -30,9 +31,7 @@ create table jogo (
 insert into jogo values 
 (1, 'sUPino');
 
-
 -- ---------------------------------------------------------------------------------------------------------------------------------------------
-
 
 create table partida (
 	idPartida int auto_increment,
@@ -42,10 +41,13 @@ create table partida (
     diaPartida datetime default current_timestamp,
     nivel_atual tinyint not null, 	
     esforco decimal (2,1) not null,
-    peso decimal(4,1) not null,
-    estimulo int,
-    click_nivel int,
-    intensidade varchar(45),
+    peso decimal(3,1) not null,
+    estimulo int not null,
+    click_nivel int not null,
+    intensidade varchar(45) not null,
+    nota_peso decimal(3,1) not null,
+    nota_esforco decimal(3,1) not null,
+    nota_estimulo decimal(3,1) not null,
 	constraint cfkPartidaFkusuario foreign key (fkUsuario)
 		references usuario(idUsuario),
 	constraint cfkPartidaFkjoo foreign key (fkJogo)
@@ -53,16 +55,34 @@ create table partida (
 );
 select * from partida;
 
-insert into partida(fkJogo, fkUsuario, nivel_atual, esforco, peso, estimulo, click_nivel, intensidade) values 
-(1, 3, 5, 1.6, 16),
-(1, 3, 5, 1.6, 16),
-(1, 3, 5, 1.6, 16),
-(1, 3, 5, 1.6, 16),
-(1, 3, 5, 1.6, 16),
-(1, 3, 5, 1.6, 16),
-(1, 3, 6, 1.5, 12);
+/*
+insert into partida (
+	fkJogo,
+	fkUsuario,
+	nivel_atual,
+	esforco,
+	peso,
+	estimulo,
+	click_nivel,
+	intensidade,
+	nota_peso,
+	nota_esforco,
+	nota_estimulo
+) values 
+(
+	1,
+	1,
+	2,
+	1.9,
+	10,
+	111,
+	19,
+	'treino fofo',
+	7,
+	6,
+	5
+);*/
 
-select * from partida;
 
 -- Maior nivel de um usuario
 select max(nivel_atual) from partida 
@@ -90,6 +110,9 @@ select max(nivel_atual) from partida
     group by fkUsuario;
 -- 
 	select Ranking from vw_ranking_peso where usuario = 1;
+    
+    
+    
     
 -- ------------------------------------------------------------------Seção dos desejáveis ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -145,9 +168,6 @@ create table exploracao (
 );
 
 
-show tables;
-insert publicacao values 
-(1, 'Anabolizante', 'Anabolizante e seus colaterais', default);
 select * from comentario;
 select * from esterEgg;
 select * from exploracao;

@@ -26,13 +26,18 @@ var niveis = [
 ];
 var nivel_atual = niveis[0][0]; // nivel atual do usuario
 var esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
-
 // Variaveis de configurações do game
 var clicks_nivel = peso * esforco; // variavel de quantos clicks o usuario precisa para 
 var peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
 var estimulo = 0; //variavel que irá armazenar quantos clicks o user está dando para levantar o peso
 var intensidade = (peso * clicks_nivel) / nivel_atual;
 var historico = 'bobocas';
+
+// Variaveis de nota
+var nota_esforco = 0;
+var nota_peso = 0;
+var nota_estimulo = 0;
+// constância virá do banco de dados no select
 
 // Variaveis reboot
 var repeticoes = 0; // quantas repeticoes o use rfez naquela série
@@ -54,6 +59,7 @@ function plotar_inicio() {
     `;
 }
 function plotar_game() {
+
     var script = `
        <div class="placar">
         <div id="div_cronometro" class="div_cronometro">
@@ -89,7 +95,7 @@ function sumir_game() {
     msm_motivacional = fazer_msm_motivacional();
     historico = fazer_historico();
 
-    
+
     section_animation.innerHTML = `
     <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
     `;
@@ -139,7 +145,7 @@ function sumir_game() {
             <div class="buttons">
                 <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 |
-                <a id="a_dashboard" onclick="encaminhar('dashboard')">Ir para dashboard</a>
+                <a id="a_dashboard" href="../locked/dashboard/dashboard.html">Ir para dashboard</a>
             </div>
 
 
@@ -147,12 +153,13 @@ function sumir_game() {
             `;
 
     avaliar_nivel();
-
+    enviar_banco();
 }
 
 
 function avaliar_intensidade() {
-    if (intensidade >= 60) {
+    intensidade = (peso * clicks_nivel) / nivel_atual;
+    if (intensidade >= 40) {
         return 'Treino intenso 🔥';
     } else if (intensidade >= 20) {
         return 'Treino moderado 💪';
@@ -175,6 +182,18 @@ function avaliar_nivel() {
             }
         }
     }
+}
+function avaliar_nota() {
+
+    nota_esforco = ((2-esforco)/(2-0.1))*10;
+
+    if(repeticoes >= 6) {
+        nota_peso = (peso/150)*10;
+    } else {
+        nota_peso = 0;
+    }
+
+    nota_estimulo = (estimulo/150)*10;
 }
 
 
@@ -234,6 +253,7 @@ function soltar_tempo() {
         tempo -= 1000;
     } else {
         clearInterval(intervalo);
+        avaliar_nota();
         sumir_game();
     }
 }
@@ -262,7 +282,7 @@ function fazer_historico() {
     var msm_historico = ``;
     for (var i = 0; i < lista_series.length; i++) {
         msm_historico += `
-            Série: ${i+1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
+            Série: ${i + 1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
         `;
     }
 
@@ -294,7 +314,7 @@ function resetar_valores() {
 }
 
 function enviar_banco() {
-    
+
     // post
     idUsuario;
     peso;
@@ -303,8 +323,9 @@ function enviar_banco() {
     nivel_atual;
     esforco;
     intensidade;
-
-
+    nota_esforco;
+    nota_estimulo;
+    nota_peso;
 }
 
 
