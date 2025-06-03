@@ -1,6 +1,17 @@
+// event lister para controle de ações
+let liberar_jogo = false; 
+
+window.addEventListener('keydown', liberarEspaco);
+
+function liberarEspaco (evento) {
+    
+    if (evento.code == 'Space' && liberar_jogo) {
+        estimular()
+    }
+}
+
 
 // Variaveis para controle de nivel -------------------------------------------------------------------------------------------------------------------------------------------
-
 var lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
 var niveis = [
     [1, 2],
@@ -47,10 +58,10 @@ var intervalo = 0; //Variavél para armazenas o intervalo
 
 function plotar_inicio() {
 
+
     div_inicio_card.style.width = '70%';
     div_inicio_card.style.left = '30%';
     div_inicio_card.style.top = '10%';
-
 
     section_game.innerHTML = ``;
 
@@ -58,6 +69,74 @@ function plotar_inicio() {
         <img class="supino descanso" src="../assets/img/game/descanso.png" alt="">
     `;
 }
+
+function colocar_peso() {
+
+    var contagemRegressiva = 5;
+
+    peso = Number(input_peso.value);
+
+    if (peso > 0) {
+        button_colocar_peso.disabled = true;
+        div_msm_inicio.innerHTML = ` 
+            <h3>O jogo começara hein:<h3/>`
+            +
+            `${contagemRegressiva}`;
+
+        var timer = setInterval(() => {
+            contagemRegressiva--;
+
+            if (contagemRegressiva > 1) {
+                div_msm_inicio.innerHTML = ` 
+                <h3>O jogo começara hein:<h3/>
+                ${contagemRegressiva}`;
+            } else if (contagemRegressiva == 0) {
+                div_msm_inicio.innerHTML = `
+                    <h1>VAMOOO!!<h1/>
+            `;
+            } else {
+
+                div_msm_inicio.innerHTML = ``;
+                clearInterval(timer);
+                section_animation.innerHTML = `
+                    <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
+                 `;
+                soltar_tempo();
+                liberar_jogo = true;
+            }
+        }, 1000);
+
+    } else {
+        div_msm_inicio.innerHTML = '<h3>ERRO MAROMBISTICO 30g: Insira um valor de peso válido para iniciar.<h3/>';
+    }
+
+}
+
+function soltar_tempo() {
+
+    sumir_inicio();
+    button_colocar_peso.disabled = false;
+    plotar_game();
+
+    if (tempo == 25000) {
+
+        intervalo = setInterval(soltar_tempo, 1000);
+        tempo -= 1000;
+    }
+    else if (tempo > 0) {
+        tempo -= 1000;
+    } else {
+        clearInterval(intervalo);
+        avaliar_nota();
+        sumir_game();
+    }
+}
+
+function sumir_inicio() {
+    div_inicio_card.style.width = '0';
+    div_inicio_card.style.left = '0';
+}
+
 function plotar_game() {
 
     var script = `
@@ -72,19 +151,29 @@ function plotar_game() {
             Nível: ${nivel_atual}
         </div>
         </div>
-        <div id="div_botao" class="div_botao_forcar">
-            <button onclick="estimular()">Fazer força</button>
-        </div>
         `;
 
     section_game.innerHTML = script;
 }
 
+function estimular() {
+    section_animation.innerHTML = `
+        <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
+    `;
+    clicks_nivel = peso * esforco;
+    estimulo++;
 
-function sumir_inicio() {
-    div_inicio_card.style.width = '0';
-    div_inicio_card.style.left = '0';
+    if (estimulo % parseInt(clicks_nivel) == 0) {
+        section_animation.innerHTML = `
+        <img class="supino descanso" src="../assets/img/game/f2.png" alt="">
+    `;
+        repeticoes++;
+    }
+
+    plotar_game();
+
 }
+
 function sumir_game() {
     var msm_motivacional = '';
 
@@ -154,8 +243,8 @@ function sumir_game() {
 
     avaliar_nivel();
     enviar_banco();
+    liberar_jogo = false;
 }
-
 
 function avaliar_intensidade() {
     intensidade = (peso * clicks_nivel) / nivel_atual;
@@ -167,6 +256,7 @@ function avaliar_intensidade() {
         return 'Treino fofo 🛌';
     }
 }
+
 function avaliar_nivel() {
 
     resetar_valores();
@@ -183,97 +273,33 @@ function avaliar_nivel() {
         }
     }
 }
+
 function avaliar_nota() {
 
-    nota_esforco = ((2-esforco)/(2-0.1))*10;
+    nota_esforco = ((2 - esforco) / (2 - 0.1)) * 10;
 
-    if(repeticoes >= 6) {
-        nota_peso = (peso/150)*10;
+    if (repeticoes >= 6) {
+        nota_peso = (peso / 150) * 10;
     } else {
         nota_peso = 0;
     }
 
-    nota_estimulo = (estimulo/150)*10;
+    nota_estimulo = (estimulo / 150) * 10;
 }
 
+function enviar_banco() {
 
-function colocar_peso() {
-
-    var contagemRegressiva = 5;
-
-    peso = Number(input_peso.value);
-
-    if (peso > 0) {
-        button_colocar_peso.disabled = true;
-        div_msm_inicio.innerHTML = ` 
-            <h3>O jogo começara hein:<h3/>`
-            +
-            `${contagemRegressiva}`;
-
-        var timer = setInterval(() => {
-            contagemRegressiva--;
-
-            if (contagemRegressiva > 1) {
-                div_msm_inicio.innerHTML = ` 
-                <h3>O jogo começara hein:<h3/>`
-                    +
-                    `${contagemRegressiva}`;
-            } else if (contagemRegressiva == 1) {
-                div_msm_inicio.innerHTML = ` 
-                    <h1>VAMOOO!!<h1/>
-            `;
-            } else {
-                div_msm_inicio.innerHTML = ``;
-                clearInterval(timer);
-                section_animation.innerHTML = `
-                    <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
-                 `;
-                soltar_tempo();
-            }
-        }, 1000);
-
-    } else {
-        div_msm_inicio.innerHTML = '<h3>ERRO MAROMBISTICO 30g: Insira um valor de peso válido para iniciar.<h3/>';
-    }
-
-}
-
-function soltar_tempo() {
-
-    sumir_inicio();
-    button_colocar_peso.disabled = false;
-    plotar_game();
-
-    if (tempo == 25000) {
-
-        intervalo = setInterval(soltar_tempo, 1000);
-        tempo -= 1000;
-    }
-    else if (tempo > 0) {
-        tempo -= 1000;
-    } else {
-        clearInterval(intervalo);
-        avaliar_nota();
-        sumir_game();
-    }
-}
-
-function estimular() {
-    section_animation.innerHTML = `
-        <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
-    `;
-    clicks_nivel = peso * esforco;
-    estimulo++;
-
-    if (estimulo % parseInt(clicks_nivel) == 0) {
-        section_animation.innerHTML = `
-        <img class="supino descanso" src="../assets/img/game/f2.png" alt="">
-    `;
-        repeticoes++;
-    }
-
-    plotar_game();
-
+    // post
+    // idUsuario;
+    // peso;
+    // estimulo;
+    // clicks_nivel;
+    // nivel_atual;
+    // esforco;
+    // intensidade;
+    // nota_esforco;
+    // nota_estimulo;
+    // nota_peso;
 }
 
 
@@ -306,27 +332,13 @@ function fazer_msm_motivacional() {
         return lista_msm[0];
     }
 }
-
 function resetar_valores() {
     repeticoes = 0;
     estimulo = 0;
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
 }
 
-function enviar_banco() {
 
-    // post
-    idUsuario;
-    peso;
-    estimulo;
-    clicks_nivel;
-    nivel_atual;
-    esforco;
-    intensidade;
-    nota_esforco;
-    nota_estimulo;
-    nota_peso;
-}
 
 
 
