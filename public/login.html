@@ -105,12 +105,14 @@
                 console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log(json);
+                    console.log("JSON: "+ json);
                     console.log(JSON.stringify(json));
+                    sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
-                   
+                    
+                    console.log("ID USUARIO salvo:", sessionStorage.ID_USUARIO);
 
                     setTimeout(function () {
                         window.location = "./locked/index.html";

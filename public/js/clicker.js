@@ -1,19 +1,20 @@
 // event lister para controle de ações
-let liberar_jogo = false; 
+let liberar_jogo = false;
 
 window.addEventListener('keydown', liberarEspaco);
 
-function liberarEspaco (evento) {
-    
+function liberarEspaco(evento) {
+
     if (evento.code == 'Space' && liberar_jogo) {
         estimular()
     }
 }
 
+// Variavel universal
+const id_usuario = sessionStorage.ID_USUARIO;
 
 // Variaveis para controle de nivel -------------------------------------------------------------------------------------------------------------------------------------------
-var lista_series = []; // variavel para armazenar as series realizadas e quantas repeticoes
-var niveis = [
+const niveis = [
     [1, 2],
     [2, 1.9],
     [3, 1.8],
@@ -35,26 +36,81 @@ var niveis = [
     [19, 0.2],
     [20, 0.1]
 ];
-var nivel_atual = niveis[0][0]; // nivel atual do usuario
-var esforco = niveis[0][1]; // esforco para fazer as repeticoes - a ideia é ele ir diminuindo conforme o tamanho da lista de series
-// Variaveis de configurações do game
-var clicks_nivel = peso * esforco; // variavel de quantos clicks o usuario precisa para 
-var peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
-var estimulo = 0; //variavel que irá armazenar quantos clicks o user está dando para levantar o peso
-var intensidade = (peso * clicks_nivel) / nivel_atual;
-var historico = 'bobocas';
+const lista_series = verificarSeries(); // variavel para armazenar as series realizadas e quantas repeticoes
+
+let nivel_atual = niveis[0][0]; // nivel atual do usuario
+let esforco = niveis[0][1]; // esforco para fazer as repeticoes
+obterNivelEsforco(); // função para puxar do banco de dados informações para atualizar nivel e esforco
+
+// Variaveis de configurações do game -----------------------------------------------------------------------------------------------------------------------------------------------
+let peso = 0; // variavel que irá coletar o peso que o usuario quer fazer a repeticao
+let clicks_nivel = 0; // variavel de quantos clicks o usuario precisa para 
+let estimulo = 0; //variavel que irá armazenar quantos clicks o user está dando para levantar o peso
+let intensidade = 0;
+let historico = '';
 
 // Variaveis de nota
-var nota_esforco = 0;
-var nota_peso = 0;
-var nota_estimulo = 0;
-// constância virá do banco de dados no select
+let nota_esforco = 0;
+let nota_peso = 0;
+let nota_estimulo = 0;
+// var constancia constância virá do banco de dados no select
 
 // Variaveis reboot
-var repeticoes = 0; // quantas repeticoes o use rfez naquela série
-var tempo = 25000 //semudar aqui tem que mudar no soltar_tempo
-var intervalo = 0; //Variavél para armazenas o intervalo
+let repeticoes = 0; // quantas repeticoes o use rfez naquela série
+let tempo = 25000 //semudar aqui tem que mudar no soltar_tempo
+let intervalo = 0; //Variavél para armazenas o intervalo
+let msm_historico = ``;
 
+
+//Inicio da seção de funções ---------------------------------------------------------------------------------------------------
+
+function obterNivelEsforco() {
+
+    return fetch(`/jogo/iniciar/${id_usuario}`)
+        .then(function (resposta) {
+            return resposta.json();
+        })
+        .then(function (data) {
+            let niv = Number(data[0].nivel);
+            let esf = Number(data[0].esforco);
+
+            niv == null ? nivel_atual = niveis[0][1] : nivel_atual = niv;
+            esf == null ? esforco = niveis[0][1] : esforco = esf;
+        })
+        .catch(function (erro) {
+            console.log(`#ERRO: ${erro}`);
+            return null;
+        });
+}
+
+function verificarSeries() {
+    if (!sessionStorage.LISTA_SERIES) {
+        const lista_series = [];
+        sessionStorage.LISTA_SERIES = lista_series;
+        return lista_series;
+    } else {
+        let lista = []
+        let temporario = '';
+        let item = sessionStorage.LISTA_SERIES
+
+        for (let i = 0; i < item.length; i++) {
+
+            if (item[i] !== ',') {
+                temporario += item[i];
+            } else {
+                lista.push(Number(temporario));
+                temporario = '';
+            }
+
+        }
+
+        if (temporario !== '') {
+            lista.push(Number(temporario))
+        }
+
+        return lista
+    }
+}
 
 function plotar_inicio() {
 
@@ -72,21 +128,23 @@ function plotar_inicio() {
 
 function colocar_peso() {
 
-    var contagemRegressiva = 5;
+    let contagemRegressiva = 5;
 
     peso = Number(input_peso.value);
 
     if (peso > 0) {
+
         button_colocar_peso.disabled = true;
+
         div_msm_inicio.innerHTML = ` 
             <h3>O jogo começara hein:<h3/>`
             +
             `${contagemRegressiva}`;
 
-        var timer = setInterval(() => {
+        let timer = setInterval(() => {
             contagemRegressiva--;
 
-            if (contagemRegressiva > 1) {
+            if (contagemRegressiva > 0) {
                 div_msm_inicio.innerHTML = ` 
                 <h3>O jogo começara hein:<h3/>
                 ${contagemRegressiva}`;
@@ -95,7 +153,6 @@ function colocar_peso() {
                     <h1>VAMOOO!!<h1/>
             `;
             } else {
-
                 div_msm_inicio.innerHTML = ``;
                 clearInterval(timer);
                 section_animation.innerHTML = `
@@ -103,11 +160,12 @@ function colocar_peso() {
                  `;
                 soltar_tempo();
                 liberar_jogo = true;
+                clicks_nivel = peso * esforco;
             }
         }, 1000);
 
     } else {
-        div_msm_inicio.innerHTML = '<h3>ERRO MAROMBISTICO 30g: Insira um valor de peso válido para iniciar.<h3/>';
+        div_msm_inicio.innerHTML = '<h3>ERRO MAROMBISTICO numero uma dose de whey: Insira um valor de peso válido para iniciar.<h3/>';
     }
 
 }
@@ -139,7 +197,7 @@ function sumir_inicio() {
 
 function plotar_game() {
 
-    var script = `
+    let script = `
        <div class="placar">
         <div id="div_cronometro" class="div_cronometro">
             Tempo para acabar: ${tempo / 1000}s
@@ -160,7 +218,7 @@ function estimular() {
     section_animation.innerHTML = `
         <img class="supino descanso" src="../assets/img/game/f1.png" alt="">
     `;
-    clicks_nivel = peso * esforco;
+
     estimulo++;
 
     if (estimulo % parseInt(clicks_nivel) == 0) {
@@ -175,9 +233,24 @@ function estimular() {
 }
 
 function sumir_game() {
-    var msm_motivacional = '';
+    let msm_motivacional = '';
 
-    lista_series[lista_series.length] = repeticoes;
+    lista_series.push(repeticoes);
+    sessionStorage.LISTA_SERIES = lista_series;
+
+    let proximo_nivel = 0;
+
+    if (lista_series.length % 6 == 0) {
+        proximo_nivel = "Você chegou no novo nivel"
+
+    } else {
+        let multiplicador = 6;
+        while (lista_series.length > multiplicador) {
+            multiplicador += 6;
+        }
+
+        proximo_nivel = multiplicador - lista_series.length;
+    }
 
     // A ordem importa, aqui
     intensidade = avaliar_intensidade();
@@ -218,7 +291,7 @@ function sumir_game() {
                     <div>
                         <h3>Evolução:</h3>
                         <span><b>Séries feitas hoje:</b> ${lista_series.length}</span>
-                        <span><b>Próximo nível em:</b> ${6 - lista_series.length} série(s)</span>
+                        <span><b>Próximo nível em:</b> ${proximo_nivel} série(s)</span>
                     </div>
 
 
@@ -241,20 +314,9 @@ function sumir_game() {
         </div>
             `;
 
+    enviar_resultados_banco();
     avaliar_nivel();
-    enviar_banco();
     liberar_jogo = false;
-}
-
-function avaliar_intensidade() {
-    intensidade = (peso * clicks_nivel) / nivel_atual;
-    if (intensidade >= 40) {
-        return 'Treino intenso 🔥';
-    } else if (intensidade >= 20) {
-        return 'Treino moderado 💪';
-    } else {
-        return 'Treino fofo 🛌';
-    }
 }
 
 function avaliar_nivel() {
@@ -274,48 +336,71 @@ function avaliar_nivel() {
     }
 }
 
-function avaliar_nota() {
+function enviar_resultados_banco() {
 
-    nota_esforco = ((2 - esforco) / (2 - 0.1)) * 10;
+    // Enviando o valor da nova input
+    fetch("/jogo/enviar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id_usuarioServer: id_usuario,
+            pesoServer: peso,
+            estimuloServer: estimulo,
+            clicks_nivelServer: clicks_nivel,
+            nivel_atualServer: nivel_atual,
+            esforcoServer: esforco,
+            intensidadeServer: intensidade,
+            nota_esforcoServer: nota_esforco,
+            nota_estimuloServer: nota_estimulo,
+            nota_pesoServer: nota_peso
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
 
-    if (repeticoes >= 6) {
-        nota_peso = (peso / 150) * 10;
-    } else {
-        nota_peso = 0;
-    }
+            if (resposta.ok) {
+                console.log("Tudo certo meu nobre");
+            } else {
+                console.log("Houve um erro ao tentar realizar a inserção de dados!");
+            }
 
-    nota_estimulo = (estimulo / 150) * 10;
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+
 }
 
-function enviar_banco() {
 
-    // post
-    // idUsuario;
-    // peso;
-    // estimulo;
-    // clicks_nivel;
-    // nivel_atual;
-    // esforco;
-    // intensidade;
-    // nota_esforco;
-    // nota_estimulo;
-    // nota_peso;
-}
-
-
-// Auxiliares
+// Auxiliares ---------------------------------------------------------------------------------------------------
 function fazer_historico() {
-    var msm_historico = ``;
-    for (var i = 0; i < lista_series.length; i++) {
-        msm_historico += `
-            Série: ${i + 1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
-        `;
+    let serie_avaliada = lista_series[lista_series.length - 1];
+
+    if (msm_historico == '') {
+        for (let i = 0; i < lista_series.length; i++) {
+            msm_historico += `
+              Série: ${i + 1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
+             `;
+        }
+    } else {
+        for (let i = 0; i < lista_series.length; i++) {
+
+            if (serie_avaliada == lista_series[i]) {
+                msm_historico += `
+              Série: ${i + 1} | Peso: ${peso} | Repetições: ${repeticoes} | Intensidade: ${intensidade}<br>
+             `;
+            }
+        }
     }
+
 
     return msm_historico;
 }
 function fazer_msm_motivacional() {
-    var lista_msm = [
+    const lista_msm = [
         `Está treinando muito fofo, vamo aumentar esse peso?!!`,
         `Seu treino está OK...Mas da para aumentar a intensidade`,
         `Você está treiando muito bem, continue assim para evoluir de nível`,
@@ -337,9 +422,26 @@ function resetar_valores() {
     estimulo = 0;
     tempo = 25000; // Se mudar aqui tem que mudar a função soltra_tempo
 }
+function avaliar_nota() {
 
+    nota_esforco = ((2 - esforco) / (2 - 0.1)) * 10;
 
+    if (repeticoes >= 6) {
+        nota_peso = (peso / 150) * 10;
+    } else {
+        nota_peso = 0;
+    }
 
-
-
+    nota_estimulo = (estimulo / 150) * 10;
+}
+function avaliar_intensidade() {
+    intensidade = (peso * clicks_nivel) / nivel_atual;
+    if (intensidade >= 40) {
+        return 'Treino intenso 🔥';
+    } else if (intensidade >= 20) {
+        return 'Treino moderado 💪';
+    } else {
+        return 'Treino fofo 🛌';
+    }
+}
 

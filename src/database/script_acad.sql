@@ -1,5 +1,5 @@
 create database acadMEa;
-
+ 
 use acadMEa;
 
 
@@ -172,7 +172,6 @@ select * from comentario;
 select * from esterEgg;
 select * from exploracao;
 select * from jogo;
-select * from login;
 select * from partida;
 select * from publicacao;
 select * from quiz;
