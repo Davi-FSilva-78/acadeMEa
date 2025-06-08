@@ -89,7 +89,8 @@ function plotarRadar(data) {
                     position: 'bottom',
                     labels: {
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     }
                 },
@@ -107,16 +108,26 @@ function plotarRadar(data) {
                 }
             },
             scales: {
-                r: { // Este é o objeto do eixo radial
+                r: {
                     angleLines: {
-                        display: true
+                        display: true,
+                        color: '#999'
                     },
-                    // *** As opções abaixo devem estar DENTRO do objeto 'r' ***
+                    grid: {
+                        color: '#999'
+                    },
+                    pointLabels: {
+                        color: '#333',
+                        font: {
+                            size: 10,
+                            weight: 'bold'
+                        }
+                    },
                     suggestedMin: 0,
                     suggestedMax: 10,
                     ticks: {
                         beginAtZero: true,
-                        // stepSize: 1 // Descomente e ajuste se precisar de espaçamento específico
+
                     }
                 }
             }
@@ -191,7 +202,8 @@ function plotarEvolucaoNiveis(data) {
                     position: 'right',
                     labels: {
                         font: {
-                            size: 10
+                            size: 12,
+                            weight: 'bolder'
                         }
                     }
                 }
@@ -201,28 +213,32 @@ function plotarEvolucaoNiveis(data) {
                     beginAtZero: true,
                     trick: {
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                     title: {
                         display: true,
                         text: 'Níveis',
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                 },
                 x: {
                     trick: {
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                     title: {
                         display: true,
                         text: 'Dias',
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                 }
@@ -236,7 +252,7 @@ function plotarMelhoresPesos(data) {
     const lista_dias = [];
     const lista_pesos = [];
 
-    for(i=0; i< data.length; i++) {
+    for (i = 0; i < data.length; i++) {
         lista_dias.push(data[i].dia);
         lista_pesos.push(data[i].peso);
     }
@@ -262,7 +278,7 @@ function plotarMelhoresPesos(data) {
                     display: true,
                     text: `Os 5 melhores pesos de ${nome}`,
                     font: {
-                        size: 14
+                        size: 14,weight: 'bolder'
                     }
                 }
             },
@@ -270,27 +286,31 @@ function plotarMelhoresPesos(data) {
                 x: {
                     ticks: {
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                     title: {
                         display: true,
                         text: '(kg)',
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     },
                 },
                 y: {
                     ticks: {
                         font: {
-                            size: 12
+                            size: 12,
+                            weight: 'bolder'
                         }
                     }, title: {
                         display: true,
                         text: 'Dias',
                         font: {
-                            size: 12
+                            size: 14,
+                            weight: 'bolder'
                         }
                     },
                 }

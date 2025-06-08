@@ -1,64 +1,57 @@
-/* Estilização geral da seção de benefícios */
-section.pilar {
-  padding: 4rem 2rem;
-  background-color: #fafafa;
-  color: #222;
-  font-family: 'Segoe UI', sans-serif;
-}
-
+/* Título principal */
 section.pilar h1 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #333;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
 }
 
-/* Blocos principais */
+.container {
+  width: 80%;
+  position:relative;
+  left: 7.5%;
+}
+
+/* Blocos de conteúdo */
 .container_bloco,
 .cointainer_half {
-  margin-bottom: 3rem;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.container_bloco img,
-.bloco_half img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-}
-
-/* Texto interno */
+/* Layout interno */
 .container_bloco .text,
 .cointainer_half {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
+/* Divisão em blocos */
 .bloco,
 .bloco_half {
   flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
 }
 
-.text_half {
-  margin-top: 1rem;
-}
 
-/* Títulos */
+/* Títulos internos */
 .container_bloco h2,
 .bloco_half h2 {
-  font-size: 1.8rem;
-  color: #e67e22; /* laranja suave */
+  font-size: 1.4rem;
+  color: var(--Laranja_escuro);
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .container_bloco h3,
 .bloco_half h3 {
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1rem;
+  color: #555;
   margin: 1rem 0 0.5rem;
 }
 
@@ -67,8 +60,12 @@ section.pilar h1 {
 .bloco_half ul {
   list-style: disc;
   margin-left: 1.5rem;
-  color: #333;
+  color: #444;
   line-height: 1.6;
+  padding-left: 0.5rem;
 }
 
-
+/* Pequeno ajuste visual */
+.text_half {
+  margin-top: 1rem;
+}

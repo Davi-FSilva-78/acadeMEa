@@ -85,27 +85,26 @@
             <div class="title_pilar">
                 <h1>PILARES DA MUSCULAÇÃO</h1>
                 <p>
-                    Resultados reais vêm com constância e foco nos fundamentos. Conheça os três pilares que sustentam
-                    qualquer evolução na academia:
+                    Resultados reais vêm com constância e foco nos fundamentos. clique nos cards para ver dicas que irão levar sua rotina a outro nível:
                 </p>
             </div>
 
             <div class="itens">
-                <div class="pilar_item">
+                <div class="pilar_item" onclick="page='dicas'; redirecionar()">
                     <img src="../assets/icons/icons8-musculação-50.svg" alt="Ícone de treino" />
                     <h3>Treino Inteligente</h3>
                     <p>Desafie seus limites com técnica e consistência. A sobrecarga progressiva é o motor da
                         hipertrofia.</p>
                 </div>
 
-                <div class="pilar_item">
+                <div class="pilar_item" onclick="page='dicas'; redirecionar()">
                     <img src="../assets/icons/icons8-caixa-de-legumes-64.svg" alt="Ícone de alimentação" />
                     <h3>Nutrição de Verdade</h3>
                     <p>Comer bem é treinar fora da academia. Proteínas, carboidratos e gorduras na medida certa fazem a
                         diferença.</p>
                 </div>
 
-                <div class="pilar_item">
+                <div class="pilar_item" onclick="page='dicas'; redirecionar()">
                     <img src="../assets/icons/icons8-dormindo-na-cama-50.svg" alt="Ícone de sono" />
                     <h3>Descanso de Qualidade</h3>
                     <p>Corpo em repouso, músculos em construção. O sono é onde a mágica acontece.</p>
@@ -118,10 +117,9 @@
         <section class="dica">
             <div class="dica_container">
                 <div class="dica_itens">
-                    <h1>DICAS</h1>
-                    <p>Além dos pilares, nossa página de dicas traz tudo que você precisa para levar sua rotina a outro
-                        nível.</p>
-                    <button onclick="page='dicas'; redirecionar()" class="button_redirecionar">VER DICAS</button>
+                    <h1>MOTIVOS QUE VÃO ALÉM DA ESTÉTICA</h1>
+                    <p>Em nossa página de benefícios traz o que você precisa saber sobre os diversos benefícios da musculação.</p>
+                    <button onclick="page='beneficios'; redirecionar()" class="button_redirecionar">VER DICAS</button>
                 </div>
             </div>
         </section>
@@ -149,7 +147,8 @@
                 dicas: './dicas.html',
                 curiosidades: './curiosidades.html',
                 previas: './previas.html',
-                jogos: './clickerGame.html'
+                jogos: './clickerGame.html',
+                beneficios: './beneficios.html'
             };
             if (routes[page]) {
                 window.location.href = routes[page];

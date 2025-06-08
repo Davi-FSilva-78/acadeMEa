@@ -276,3 +276,42 @@ main {
     width: 200px;
     height: auto;
 }
+
+/* My images ------------------------------------------------------------- */
+.myImages {
+    z-index: 100;
+    background-color: black;
+    position: fixed;
+    width: 0;
+    height: 100%;
+    overflow-x: hidden;
+    left: 0;
+    transition:500ms
+}
+
+.quadro {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 70%;
+    color: #fff;
+}
+
+.quadro img {
+    width: 30%;
+    height: 20%;
+}
+.quadro p {
+    font-size: 50px ;
+    position: absolute;
+    top: 2%;
+    left:3%;
+}
+
+.quadro p:hover {
+    color: var(--Laranja_escuro);
+    font-size: 60px;
+    cursor: pointer;
+}

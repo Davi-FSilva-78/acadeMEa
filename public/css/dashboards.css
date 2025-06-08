@@ -17,6 +17,13 @@
 
 }
 
+h1 {
+    color: var(--Azul_escuro);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 
 /* Pagina geral */
 body {
@@ -25,7 +32,6 @@ body {
 
 
 .main {
-    background-color: whitesmoke;
     height: 85dvh;
     flex-grow: 1;
     overflow-y: hidden;
@@ -34,51 +40,6 @@ body {
     justify-content: space-evenly;
     align-items: center;
     /*Manter a side bar fixa e constante*/
-}
-
-.sidebar {
-    width: 20%;
-    /* background-color: var(--Azul_escuro); */
-    color: var(--Azul_escuro);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-
-
-.sidebar img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.sidebar h2 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.sidebar p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-.sidebar a {
-    color: #000;
-    text-decoration: none;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /*Espaçamento*/
-    font-size: 16px;
-}
-
-.sidebar a:hover {
-    color: #ccc;
 }
 
 
@@ -157,7 +118,7 @@ body {
 
 .chart-container .charts .chart-box {
     padding: 10px;
-    background: white;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +132,7 @@ body {
 
 .chart-container .charts .chart-box2 {
     padding: 10px;
-    background: white;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +143,7 @@ body {
 }
 
 .chart-box3 {
-    background: white;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     height: 48% !important;

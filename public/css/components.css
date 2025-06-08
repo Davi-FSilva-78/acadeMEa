@@ -5,10 +5,10 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    box-shadow: 2px 2px 5px #eef;
+    box-shadow: 0px 5px 8px rgba(100,100,100,0.5);
     height: 15dvh;
     z-index: 100;
-    background-color: rgba(255,255,255, 0.7);
+    background-color: rgba(255,255,255, 1);
 }
 
 header img {
@@ -26,13 +26,18 @@ header img {
 /* Tratamento para visitantes */
 
 .visit_header_container {
-    width: 15%;
+    width: 30%;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .list_visit_option {
     display: flex;
     justify-content: space-evenly;
+    width: 40%
 }
 
 .list_visit_option li {
@@ -42,6 +47,21 @@ header img {
 .list_visit_option li a {
     text-decoration: none;
 }
+
+.list_cad {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.list_cad li {
+    list-style: none;
+}
+
+.list_cad li a {
+    text-decoration: none;
+}
+
 
 
 .cadastro a {

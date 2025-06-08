@@ -59,7 +59,7 @@ delete from partida where idPartida in (29,28,27);
     
 -- -----------------------------------------------------------------
 -- Ranking de maiores niveis
-	alter view vw_ranking_nivel as
+	create view vw_ranking_nivel as
     select 
 	distinct fkUsuario as usuario , 
     max(nivel_atual) as nivel_max,

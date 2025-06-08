@@ -1,8 +1,8 @@
 
     function openNav() {
-        myNav.style.width = '25%'
+        myNav.style.width = '25%';
     }
 
     function closeNav() {
-        myNav.style.width = '0'
+        myNav.style.width = '0';
     }

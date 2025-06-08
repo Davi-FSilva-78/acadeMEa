@@ -23,7 +23,7 @@ class Header extends HTMLElement {
                 </div>
             </nav>
             
-            <div class="logo"><img src="../assets/img/global/logo.png" alt=""></div>
+             <div class="logo"><a href="index.html"><img src="../assets/img/global/logo.png" alt=""></a></div>
             <nav class="visit_header_container">
                 <div class="list_visit_option">
                         <div class="burguerSalas" onclick="openNav()">

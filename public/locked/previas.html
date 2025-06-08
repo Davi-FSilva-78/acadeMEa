@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>acadMEa - O site que te inspira</title>
     <!-- estilos css -->
-    <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/previas.css">
+    <link rel="stylesheet" href="../css/components.css">
 
     <!-- biblioteca de carrosel - estilos e funções -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -23,55 +23,62 @@
 </head>
 
 <body onload="validarSessao()">
+    <user-header></user-header>
 
     <div class="container">
         <!-- Header modularizado -->
-        <user-header></user-header>
 
 
         <!-- Um pouco do que tem na pagina de curiosidade -->
         <section class="atualizacoes_futuras">
             <div class="previas-container">
-                <h1>⚡ Próximas Atualizações</h1>
+                <h1>Próximas Atualizações</h1>
                 <p>Confira um vislumbre do que estamos preparando para transformar sua experiência no
-                    <strong>acadMEa</strong>!</p>
+                    <strong>acadMEa</strong>!
+                </p>
 
                 <div class="previa-box">
-                    <h2>💬 Sistema de Comentários e Curtidas</h2>
-                    <p>
-                        Em breve, você poderá interagir com outros usuários do site, curtindo e comentando nas
-                        atualizações, dicas e curiosidades.
-                        Nosso objetivo é criar uma comunidade forte, onde o conhecimento é compartilhado e valorizado.
-                    </p>
+                    <div class="mensagem">
+                        <h2>Sistema de Comentários e Curtidas</h2>
+                        <p>
+                            Em breve, você poderá interagir com outros usuários do site, curtindo e comentando nas
+                            atualizações, dicas e curiosidades.
+                            Nosso objetivo é criar uma comunidade forte, onde o conhecimento é compartilhado e
+                            valorizado.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="post">
+                        <img src="../assets/img/previas/comentarios.png" alt="">
+                        <strong>Lançamento: 09/09/2025 </strong>
+                    </div>
                 </div>
 
                 <div class="previa-box">
-                    <h2>🎮 Novo Jogo em Desenvolvimento</h2>
-                    <p>
-                        Um novo desafio interativo está sendo projetado! Prepare-se para testar seus conhecimentos em
-                        musculação de forma divertida e educativa.
-                        Recompensas, rankings e surpresas te aguardam!
-                    </p>
+                    <div class="mensagem">
+                        <h2>Novo Jogo em Desenvolvimento</h2>
+                        <p>
+                            Um novo desafio interativo está sendo projetado! Prepare-se para testar seus conhecimentos
+                            em
+                            musculação de forma divertida e educativa.
+                            Recompensas, rankings e surpresas te aguardam!
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="post">
+                        <img src="../assets/img/previas/jogo.jpg" alt="">
+                        <strong>Lançamento: 09/12/2025 </strong>
+                    </div>
+
                 </div>
 
-                <div class="previa-box">
-                    <h2>📰 Sessão Jornalística da Maromba</h2>
-                    <p>
-                        Em breve, lançaremos uma seção de notícias dedicada ao mundo da musculação: novidades sobre
-                        suplementos, treinos, atletas e eventos importantes. Tudo isso com uma pegada leve, informativa
-                        e 100% focada na maromba!
-                    </p>
-                </div>
-
-                <p class="final-msg">Fique ligado! Essas atualizações vão elevar o nível do seu treino físico e mental.
-                    💪</p>
             </div>
         </section>
 
 
         <!-- Fazer u mfooter modular também -->
-        <footer-main></footer-main>
     </div>
+    <footer-main></footer-main>
 
 
 </body>

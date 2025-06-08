@@ -6,12 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Login</title>
+    <title>acadMEa - O site que te inspira</title>
 
     <script src="./js/sessao.js"></script>
-
-    <script src="./components/header/visit_header.js"></script>
-    <script src="./components/footer/footer.js"></script>
 
     <!-- estilos css -->
     <link rel="stylesheet" href="./css/components.css">
@@ -20,12 +17,6 @@
 </head>
 
 <body>
-
-    <!--Header-->
-
-    <!-- Header modularizado -->
-    <main-header></main-header>
-
 
     <div class="form_login">
         <div class="alerta_erro">
@@ -36,7 +27,7 @@
         <div class="container">
             <div class="card card-login">
                 <nav>
-                    <a href="index.html">← Voltar</a>
+                    <a href="index.html">←</a>
                 </nav>
                 <h2>Que bom que voltou!</h2>
                 <div class="formulario">
@@ -50,7 +41,9 @@
                     </div>
                     <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
-
+                <div class="redirecionar">
+                    Ainda não é cadastrado? <a href="cadastro.html">ir para cadastro</a>
+                </div>
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/gif/aguarde-orange.gif" id="loading-gif">
                 </div>
@@ -59,10 +52,6 @@
             </div>
         </div>
     </div>
-
-    <!--footer inicio-->
-  <footer-main></footer-main>
-    <!--footer fim-->
 
 </body>
 
@@ -105,13 +94,13 @@
                 console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log("JSON: "+ json);
+                    console.log("JSON: " + json);
                     console.log(JSON.stringify(json));
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
-                    
+
                     console.log("ID USUARIO salvo:", sessionStorage.ID_USUARIO);
 
                     setTimeout(function () {

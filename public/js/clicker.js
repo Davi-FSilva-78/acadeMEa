@@ -444,3 +444,10 @@ function avaliar_intensidade() {
     }
 }
 
+function plotar_imagem_escondida() {
+    myImages.style.width = '100%';
+}
+
+function close_images() {
+    myImages.style.width = '0';
+}

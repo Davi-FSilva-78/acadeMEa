@@ -4,13 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>acadMEa - O site que te inspira</title>
     <link rel="stylesheet" href="../css/game.css">
     <script src="../js/clicker.js"></script>
 
 </head>
 
 <body onload="plotar_inicio()">
+    
+    <div id="myImages" class="myImages">
+        <div id="quadro" class="quadro">
+            <p onclick="close_images()">&times</p>
+            <img src="../assets/img/ester/f1.jpg" alt="">
+            <img src="../assets/img/ester/f2.jpg" alt="">
+            <img src="../assets/img/ester/f3.jpg" alt="">
+        </div>
+
+    </div>
     <img src="../assets/img/game/cenario.png" alt="">
     <main>
         <section id="section_inicio" class="inicio">
@@ -32,7 +42,7 @@
 
         </section>
 
-        <section id="section_animation">
+        <section id="section_animation" onclick="plotar_imagem_escondida()">
 
         </section>
 

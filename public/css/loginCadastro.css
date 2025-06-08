@@ -1,29 +1,36 @@
 .form_login {
-    height: var(--tamanho-login);
     background-image: url('../assets/img/cadastroLogin/fundoacademiaamarelo.jpg');
     opacity: 95%;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 100dvh;
+    overflow-y: hidden;
+    position: relative;
 }
 
-.form_login .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.redirecionar {
+    color: white;
+
+}
+.redirecionar a {
+    color: var(--Azul_claro);
 }
 
 .card {
-    width: 40%;
-    background-color: #e5e5e5;
-    border-radius: 20px;
+    position: absolute;
+    top: 2%;
+    right: 8%;
+    width: 50%;
+    background-color: rgba(65,65,65,0.956);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     color: var(--Azul_escuro);
     flex-direction: column;
-    height: fit-content;
-    padding: 20px 0;
+    height: 90%;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.54);
+    border-radius: 10px;
+    padding-bottom: 10px;
 }
 
 .card nav {
@@ -32,15 +39,14 @@
 }
 
 .card nav a {
-    color:var(--Azul_escuro);
+    color: var(--Laranja_escuro);
     text-decoration: none;
-    font-size: 15px;
     font-weight: 600;
+    font-size: 50px;
 }
 
 .card nav a:hover {
-    color:var(--Azul_claro);
-    background-color: var(--Azul_escuro);
+    color: var(--Laranja_claro);
     transition: 20ms;
     border-radius: 20px;
     padding: 5px;
@@ -57,7 +63,7 @@
     display: flex;
     height: 90%;
     width: 80%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
 }
 
@@ -67,14 +73,14 @@
 }
 
 .formulario input {
-    border: 2px solid var(--Azul_claro);
+    border: none;
     text-align: center;
     border-radius: 10px;
     margin: 0;
 }
 
 .formulario select {
-    border: 2px solid var(--Azul_claro);
+    border: none;
     background-color: white;
     color: gray;
     height: 36px;
@@ -108,6 +114,11 @@
     justify-content: center;
 }
 
+.botao:hover {
+    background-color: var(--Laranja_claro);
+    transition: 1000ms;
+}
+
 .loading-div {
     width: 50px;
     display: none;
@@ -126,7 +137,7 @@
 
 .alerta_erro {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .card_erro {
@@ -136,9 +147,11 @@
     width: 230px;
     position: fixed;
     border-radius: 4px;
-    border: var(--Laranja_escuro) 3px solid;
+    border: var(--Laranja_escuro) 1px solid;
     padding: 10px;
-    margin-right: 10%;
+    margin-left: 10%;
+    text-align: left;
+    width: 25%;
 }
 
 .card_erro #mensagem_erro {
