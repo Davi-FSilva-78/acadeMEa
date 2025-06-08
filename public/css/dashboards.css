@@ -26,7 +26,7 @@ body {
 
 .main {
     background-color: whitesmoke;
-    height: 90dvh;
+    height: 85dvh;
     flex-grow: 1;
     overflow-y: hidden;
     display: flex;

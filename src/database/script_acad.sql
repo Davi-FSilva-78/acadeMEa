@@ -55,64 +55,99 @@ create table partida (
 );
 select * from partida;
 
-/*
-insert into partida (
-	fkJogo,
-	fkUsuario,
-	nivel_atual,
-	esforco,
-	peso,
-	estimulo,
-	click_nivel,
-	intensidade,
-	nota_peso,
-	nota_esforco,
-	nota_estimulo
-) values 
-(
-	1,
-	1,
-	2,
-	1.9,
-	10,
-	111,
-	19,
-	'treino fofo',
-	7,
-	6,
-	5
-);*/
-
-
--- Maior nivel de um usuario
-select max(nivel_atual) from partida 
-	where fkUsuario = 1;
+delete from partida where idPartida in (29,28,27);
+    
 -- -----------------------------------------------------------------
 -- Ranking de maiores niveis
-	create view vw_ranking_nivel as
+	alter view vw_ranking_nivel as
     select 
 	distinct fkUsuario as usuario , 
     max(nivel_atual) as nivel_max,
-    dense_rank() over (order by max(nivel_atual) desc) as Ranking
+    dense_rank() over (order by max(nivel_atual) desc) as Ranking,
+    (select count(distinct fkUsuario) from partida) as qtd_usuario
     from partida
     group by fkUsuario;
--- 
-	select usuario, Ranking from vw_ranking_nivel ;
--- ----------------------------------------------------------------------
--- Ranking dosmaiores pesos
-    -- Ranking de maiores niveis
+
+	select * from vw_ranking_nivel ;
+
+
 	create view vw_ranking_peso as
     select 
 	distinct fkUsuario as usuario , 
     max(peso) as peso_max,
-    dense_rank() over (order by max(peso) desc) as Ranking
+    dense_rank() over (order by max(peso) desc) as Ranking,
+    (select count(distinct fkUsuario) from partida) as qtd_usuario
     from partida
     group by fkUsuario;
 -- 
-	select Ranking from vw_ranking_peso where usuario = 1;
+	select * from vw_ranking_peso;
+
     
     
     
+-- Maior nivel e eforço do usuario, para definir valores inicais
+select max(nivel_atual) as nivel, min(esforco) as esforco from partida where fkUsuario = 1;
+
+
+-- envio de notas para grafico radar
+select 
+avg(nota_estimulo) as nota_estimulo,
+avg(nota_esforco) as nota_esforco, 
+avg(nota_peso) as nota_peso, 
+datediff(
+	curdate(),
+	(select max(date_format(diaPartida, '%Y/%m/%d')) from partida where fkUsuario = 1 )
+) as Ultimo_jogado
+from partida 
+ where fkUsuario = 1;
+	
+-- Para plotar as KPIS
+select 
+avg(nota_estimulo) as nota_estimulo,
+avg(nota_esforco) as nota_esforco, 
+avg(nota_peso) as nota_peso, 
+datediff(
+	curdate(),
+	(select max(date_format(diaPartida, '%Y/%m/%d')) from partida where fkUsuario = 1 )
+) as Ultimo_jogado
+from partida  where fkUsuario = 1;
+select 
+	nivel.nivel_max, 
+	nivel.Ranking as niv_ranking, 
+	peso.Ranking as pes_ranking ,
+    peso.qtd_usuario
+from 
+	vw_ranking_nivel as nivel
+    join vw_ranking_peso as peso
+		on nivel.usuario = peso.usuario 
+	where nivel.usuario = 1;
+
+-- Plotar Evolução de niveis
+select 
+avg(nota_estimulo) as nota_estimulo,
+avg(nota_esforco) as nota_esforco, 
+avg(nota_peso) as nota_peso, 
+datediff(
+	curdate(),
+	max(date_format(diaPartida, '%Y/%m/%d'))
+) as Ultimo_jogado,
+date_format(diaPartida, '%Y/%m/%d') as dia
+from partida 
+ where fkUsuario = 1 and month(diaPartida) = month(curdate())
+ group by dia;
+    
+    
+-- plotar melhores pesos
+	select distinct 
+    peso, 
+    max( date_format(diaPartida, '%Y/%m/%d')) as dia 
+    from partida 
+    where fkUsuario = 1 
+    group by peso
+    order by peso desc  
+    limit 5 ;
+    
+
     
 -- ------------------------------------------------------------------Seção dos desejáveis ---------------------------------------------------------------------------------------------------------------------------------------
 

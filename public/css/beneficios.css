@@ -1,0 +1,81 @@
+/* Estilização geral da seção de benefícios */
+section.pilar {
+  padding: 4rem 2rem;
+  background-color: #fafafa;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+section.pilar h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+/* Blocos principais */
+.container_bloco,
+.cointainer_half {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.container_bloco img,
+.bloco_half img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+/* Texto interno */
+.container_bloco .text,
+.cointainer_half {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.bloco,
+.bloco_half {
+  flex: 1 1 45%;
+}
+
+.text_half {
+  margin-top: 1rem;
+}
+
+/* Títulos */
+.container_bloco h2,
+.bloco_half h2 {
+  font-size: 1.8rem;
+  color: #e67e22; /* laranja suave */
+  margin-bottom: 0.5rem;
+}
+
+.container_bloco h3,
+.bloco_half h3 {
+  font-size: 1.2rem;
+  color: #444;
+  margin: 1rem 0 0.5rem;
+}
+
+/* Listas */
+.container_bloco ul,
+.bloco_half ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Separador */
+hr {
+  margin: 3rem auto;
+  border: none;
+  height: 1px;
+  background: #ddd;
+  width: 80%;
+}

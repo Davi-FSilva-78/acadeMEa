@@ -1,59 +1,46 @@
-/* Peças
-As seguintes partes CSS estão disponíveis para estilização:
+p {
+    font-weight: 800;
+}
 
-container- estilos para<div class="swiper">
-wrapper- estilos para<div class="swiper-wrapper">
-button-prev- estilos para o botão de navegação anterior<div class="swiper-button-prev">
-button-next- estilos para o próximo botão de navegação<div class="swiper-button-next">
-pagination- estilos para o contêiner de paginação anterior<div class="swiper-pagination">
-bullet- estilos para o elemento de marcador de paginação
-bullet-active- estilos para o elemento de marcador de paginação ativo
-scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
-
+/* SWIPER (CARROSSEL) ------------------------------------------------------------------------------- */
 .swiper-pagination span {
     background-color: var(--Laranja_escuro);
 }
 
-.swiper .swiper-slide{
+.swiper .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-
- 
 }
+
 .swiper .slide {
     width: 90%;
     height: 85%;
-    opacity: 90%;
+    opacity: 0.9;
     display: flex;
     align-items: center;
-    justify-content:flex-start;
+    justify-content: flex-start;
     border-radius: 40px;
-
 }
 
 .swiper h3 {
     color: #fff;
 }
 
- .swiper .swiper-jogos {
-    background-image: url(../assets/img/game/Gemini_Generated_Image_27uuun27uuun27uu.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    
+.swiper .swiper-jogos {
+    background: url(../assets/img/index/jogo.png) no-repeat center;
+    background-size: cover;
 }
 
 .swiper .swiper_dicas {
-    background-image: url(../assets/img/global/altere_duplo_sombreado.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url(../assets/img/global/altere_duplo_sombreado.png) no-repeat center;
+    background-size: cover;
 }
 
 .swiper .swiper-segredos {
-    background-image: url(../assets/img/index/explore.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url(../assets/img/index/explore.jpg) no-repeat center;
+    background-size: cover;
 }
 
 .swiper .slide-container {
@@ -64,115 +51,135 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
     height: 60%;
     width: 50%;
     background-color: #222;
-    opacity: 87%;
+    opacity: 0.87;
     margin-left: 80px;
     border-radius: 20px;
 }
 
-
-/* curiosidades-------------------------------------------------------------------------------------------------------------------------------- */
+/* CURIOSIDADES ------------------------------------------------------------------------------------- */
 .curiosidade {
-    background-repeat: no-repeat;
+    background: url("../assets/img/global/altere_unico.png") no-repeat center;
     background-size: cover;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    height: 700px;
-    
+    opacity: 0.9;
 }
+
 .curiosidade_organize {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     color: #fff;
-    background-color: #111;
+    background-color: rgba(50, 50, 50, 0.9);
     height: 85%;
     width: 50%;
     border-radius: 20px;
- 
+    padding: 20px;
+    text-align: center;
 }
 
 .curiosidade p {
-    width: 90%;
-    
+    width: 80%;
+    font-size: 20px;
 }
 
-/* Pilares -------------------------------------------------------------------------------------------------------------------------*/
+/* PILARES ------------------------------------------------------------------------------------------ */
 .pilar {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 700px;
-  
+    height: 600px;
+    padding: 20px 0;
 }
-.title_pilar{
+
+.title_pilar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: auto;
+    text-align: center;
 }
 
 .itens {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    max-width: 90%;
+    gap: 30px;
+    width: 90%;
+    margin-top: 30px;
 }
 
 .itens div {
+    flex: 1;
     max-width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 400px;;
+    height: 400px;
+    text-align: center;
 }
 
 .itens img {
     width: 100px;
-    padding: 30px;
+    padding: 20px;
 }
 
 .itens p {
-    height: 40px;
+    padding: 0 10px;
+}
+
+.pilar_item {
+    max-width: 30%;
+    background-color: #123456;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.pilar_item img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.pilar_item h3 {
+    margin-bottom: 10px;
+    color: var(--Laranja_escuro);
 }
 
 
-/* dicas ------------------------------------------------------------------------------------------------------------------------------*/
+/* DICAS -------------------------------------------------------------------------------------------- */
 .dica {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    height: 700px;
-
+    justify-content: flex-end;
+    align-items: center;
+    height: 500px;
 }
 
-.style {
-    background-image: url("../assets/img/global/mulher_box3.png");  
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 50%;
+.dica {
+    background: url("../assets/img/curiosidade/saude.png") no-repeat left;
+    background-size: cover;
+    display: flex;
+    align-items: center;
 }
 
 .dica_container {
     width: 45%;
-    height: 650px;
+    height: 100%;
     margin-right: 12%;
     border-radius: 40px;
-    background-color: #fff;
+    color: #123456;
     box-shadow: 3px 3px 3px 3px rgba(100, 100, 100, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: larger;
+    background-color: rgba(100, 100, 100, 0.90);
 }
 
 .dica_itens {
@@ -181,32 +188,33 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 .dica_itens ul {
     list-style: none;
+    padding: 0;
 }
 
 .dica_itens a {
     text-decoration: none;
 }
 
-
-/* Prévias -------------------------------------------------------------------------------------------------------------------------*/
-
+/* PRÉVIAS ------------------------------------------------------------------------------------------ */
 .previa {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_unico.png");
+    /* background: url("../assets/img/global/altere_unico.png") no-repeat center; */
+    background-size: cover;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    height: 500px;
 }
+
 .previa_organize {
+    background: url("../assets/img/index/explore.jpg") no-repeat center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -216,9 +224,10 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
     height: 65%;
     width: 40%;
     border-radius: 20px;
-    opacity: 85%;
+    opacity: 0.85;
     margin-left: 12%;
- 
+    padding: 20px;
+    text-align: center;
 }
 
 .previa p {

@@ -9,12 +9,13 @@ class Header extends HTMLElement {
                 <div class="overlaycontent">
                     <a href="../../locked/index.html">Home</a>
                     <hr>
-                    <a href="../../locked/previas.html">Previas</a>
                     <a href="../../locked/dicas.html">Dicas</a>
-                    <a href="../../locked/curiosidades.html">curiosidades</a>
+                    <a href="../../locked/beneficios.html">Beneficios</a>
+                    <a href="../../locked/curiosidades.html">Curiosidades</a>
+                    <a href="../../locked/previas.html">Previas</a>
                     <hr>
                     <a href="../../locked/clickerGame.html">Jogos</a>
-                    <a href="../../locked/dashboard/dashboard.html">Dashboard</a>
+                    <a href="../../locked/dashboard.html">Dashboard</a>
                     <hr  
                 </div>
                 <div class="btn-logout" onclick="limparSessao()">
@@ -22,7 +23,7 @@ class Header extends HTMLElement {
                 </div>
             </nav>
             
-            <div class="logo"></div>
+            <div class="logo"><img src="../assets/img/global/logo.png" alt=""></div>
             <nav class="visit_header_container">
                 <div class="list_visit_option">
                         <div class="burguerSalas" onclick="openNav()">

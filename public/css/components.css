@@ -6,15 +6,21 @@ header {
     align-items: center;
     width: 100%;
     box-shadow: 2px 2px 5px #eef;
-    height: 10dvh;
+    height: 15dvh;
     z-index: 100;
+    background-color: rgba(255,255,255, 0.7);
+}
+
+header img {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
 }
 
 .logo {
-    width: 25%;
-    height: 35px;
-    border-bottom: 6px solid var(--Azul_escuro);
-    margin-bottom: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Tratamento para visitantes */
@@ -160,6 +166,6 @@ footer {
     font-weight: bolder;
     height: 100px;
     border: none;
-    background-color: #fff;
+    background-color:  rgba(18, 52, 86, 0.8);
     border-top: 1px solid rgba(0,0,0,0.5);
 }

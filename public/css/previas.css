@@ -1,162 +1,45 @@
-.swiper-pagination span {
-    background-color: var(--Laranja_escuro);
+.atualizacoes_futuras {
+  padding: 40px 20px;
+  background-color: #fff5ee;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
 }
 
-
-
-/* curiosidades */
-.curiosidade {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_duplo_sombreado.png");
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 700px;
-    
-}
-.curiosidade_organize {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: #fff;
-    background-color: #111;
-    height: 85%;
-    width: 50%;
-    border-radius: 20px;
- 
+.previas-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.curiosidade p {
-    width: 90%;
-    
+.previas-container h1 {
+  font-size: 2.5em;
+  color: var(--Laranja_escuro);
+  margin-bottom: 10px;
 }
 
-/* Pilares */
-.pilar {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--Marrom_escuro);
-    height: 700px;
-  
-}
-.title_pilar{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
+.previa-box {
+  background-color: #fff;
+  border-left: 6px solid var(--Laranja_claro);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  text-align: left;
 }
 
-.itens {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 90%;
+.previa-box h2 {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  color: var(--Laranja_escuro);
 }
 
-.itens div {
-    max-width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 400px;;
+.previa-box p {
+  font-size: 1em;
+  line-height: 1.6em;
 }
 
-.itens img {
-    width: 100px;
-    border: 1px solid var(--Marrom_claro);
-    border-radius: 50px;
-    padding: 30px;
-    background-color: var(--Marrom_claro);
-}
-
-.itens p {
-    height: 40px;
-}
-
-
-/* dicas */
-.dica {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    background-image: url("../assets/img/global/mulher_box3.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 50%;
-    background-color: var(--Marrom_escuro);
-    height: 700px;
-
-}
-
-.dica_container {
-    width: 45%;
-    height: 650px;
-    margin-right: 12%;
-    border-radius: 40px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dica_itens {
-    width: 70%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.dica_itens ul {
-    list-style: none;
-}
-
-.dica_itens a {
-    text-decoration: none;
-}
-
-
-/* Prévias */
-
-.previa {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-image: url("../assets/img/global/altere_unico.png");
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    background-color: var(--Marrom_escuro);
-}
-.previa_organize {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: #fff;
-    background-color: #222;
-    height: 65%;
-    width: 40%;
-    border-radius: 20px;
-    opacity: 85%;
-    margin-left: 12%;
- 
-}
-
-.previa p {
-    width: 90%;
+.final-msg {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 30px;
 }

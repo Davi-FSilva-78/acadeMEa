@@ -71,15 +71,14 @@ function obterNivelEsforco() {
             return resposta.json();
         })
         .then(function (data) {
-            let niv = Number(data[0].nivel);
-            let esf = Number(data[0].esforco);
+            let niv = data[0].nivel;
+            let esf = data[0].esforco;
 
-            niv == null ? nivel_atual = niveis[0][1] : nivel_atual = niv;
-            esf == null ? esforco = niveis[0][1] : esforco = esf;
+            niv === null ? nivel_atual = niveis[0][0] : nivel_atual = Number(niv);
+            esf === null ? esforco = niveis[0][1] : esforco = Number(esf);
         })
         .catch(function (erro) {
             console.log(`#ERRO: ${erro}`);
-            return null;
         });
 }
 
