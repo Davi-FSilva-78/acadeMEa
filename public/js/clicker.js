@@ -306,7 +306,7 @@ function sumir_game() {
             <div class="buttons">
                 <button id="button_colocar_peso" onclick="plotar_inicio()">Fazer outra série</button>
                 |
-                <a id="a_dashboard" href="../locked/dashboard/dashboard.html">Ir para dashboard</a>
+                <a id="a_dashboard" href="./dashboard.html">Ir para dashboard</a>
             </div>
 
 

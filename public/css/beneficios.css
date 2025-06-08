@@ -71,11 +71,4 @@ section.pilar h1 {
   line-height: 1.6;
 }
 
-/* Separador */
-hr {
-  margin: 3rem auto;
-  border: none;
-  height: 1px;
-  background: #ddd;
-  width: 80%;
-}
+

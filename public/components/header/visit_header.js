@@ -2,7 +2,7 @@ class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header>
-                <div class="logo"></div>
+                <div class="logo"><img src="../assets/img/global/logo.png" alt=""></div>
                 <nav class="visit_header_container">
                     <ul class="list_visit_option">
                         <li class="cadastro"> <a href="./cadastro.html">Cadastro</a></li>
