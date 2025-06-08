@@ -28,6 +28,7 @@ h1 {
 /* Pagina geral */
 body {
     height: 100dvh;
+    background-color: rgba(225, 225, 225, 0.9);
 }
 
 

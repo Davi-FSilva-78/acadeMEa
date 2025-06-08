@@ -16,8 +16,8 @@ class Header extends HTMLElement {
                     <s style="text-decoration-thickness: 2px"><a onclick="alert('Cadastre-se para jogar')">Jogos</a></s>
                     <s style="text-decoration-thickness: 2px"><a onclick="alert('Cadastre-se para ver seus resultados')">Dashboard</a></s>
                     <hr </div>
-                    <div class="btn-logout" onclick="limparSessao()">
-                        <h3>Sair</h3>
+                    <div class="btn-logout" onclick="logar, redirecionar">
+                        <h3><a href = "./login.html">Login</a></h3>
                     </div>
             </nav>
 

@@ -128,32 +128,12 @@ scrollbar- - estilos para contêiner Scrollbar<div class="swiper-scrollbar"> */
 }
 
 .swiper .influencer {
-    background-image: url(../assets/img/curiosidade/arnold.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 48%;
-}
-
-.swiper .saudeFisica {
-    background-image: url(../assets/img/curiosidade/saude.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 48%;
-}
-
-.swiper .saudeMental {
     background-image: url(../assets/img/curiosidade/saudeMental.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 48%;
 }
 
-.swiper .longevidade {
-    background-image: url(../assets/img/curiosidade/longevidade.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 50%;
-}
 
 
 
